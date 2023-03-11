@@ -5,6 +5,7 @@ import logger from "morgan";
 import cors from "cors";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
+import usersRoutes from "./routes/usersRoutes.js";
 
 import { connectToDb } from "./config/db.js";
 
@@ -30,6 +31,8 @@ app.set("view engine", "ejs");
 
 app.use(express.static(join(__dirname, "..", "client", "build")));
 app.use(express.static(__dirname));
+
+app.use("/api/users", usersRoutes);
 
 const port = process.env.PORT || 3001;
 
