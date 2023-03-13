@@ -4,7 +4,9 @@ import "./HomePage.css"
 
 function HomePage() {
   return (
-    <div>HomePage</div>
+    <div id='homepage-container'>
+      <h1>MERAKI SCANS</h1>
+    </div>
   )
 }
 
