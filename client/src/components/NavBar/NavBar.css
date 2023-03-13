@@ -36,6 +36,13 @@
     padding: 10px 15px;
     border-radius: 15px;
     font-family: var(--title-font);
+    background: linear-gradient(#0000, rgb(0 0 0/40%)) top/100% 800%;
+    transition: 0.5s;
+}
+
+.auth-btn:hover {
+    cursor: pointer;
+    background-position: bottom;
 }
 
 #login-btn {
