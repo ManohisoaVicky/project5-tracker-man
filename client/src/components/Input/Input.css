@@ -1,0 +1,26 @@
+:root {
+  --title-font: 'Russo One', sans-serif;
+  --light-green: #3ed057;
+  --dark-green: #0e4429;
+  --light-grey: #5e6670;
+  --dark-grey: #2a3038;
+  --dark: #22272e;
+  --white: #FFFFFF;
+}
+
+.username, 
+.password {
+    width: 100%;
+    height: 90%;
+    outline: none;
+    background-color: var(--dark-grey);
+    border: 1px solid var(--light-grey);
+    border-radius: 3px;
+    transition: 0.5s;
+    margin-top: 5px;
+}
+
+.username:focus, 
+.password:focus {
+    outline: 1px solid var(--light-green);
+}
