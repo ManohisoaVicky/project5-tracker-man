@@ -28,10 +28,10 @@
     border: 2px solid var(--light-green);
     border-radius: 5px;
     width: 25%;
-    height: 25%;
+    height: 30%;
 }
 
 .login-input-container {
     width: 90%;
-    height: 10%;
+    height: 13%;
 }

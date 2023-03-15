@@ -12,29 +12,38 @@ function LoginPage() {
     password: ""
   })
 
+  const handleChange = (e) => {
+    setState({
+      ...state, 
+      [e.target.name]: e.target.value
+    })
+  }
+
   return (
-    <div id='login-pg-cont'>
+    <div id="login-pg-cont">
       <form id="login-form">
-        <div className="login-input-container"> 
-          <Label label="Email"/>
-          <Input 
-          name="username" 
-          type="email"
-          value={state.email}
+        <div className="login-input-container">
+          <Label label="Email" />
+          <Input
+            name="email"
+            type="email"
+            value={state.email}
+            handleChange={handleChange}
           />
         </div>
         <div className="login-input-container">
-          <Label label="Password"/>
+          <Label label="Password" />
           <Input
-          name="password"
-          type="password"
-          value={state.password}
+            name="password"
+            type="password"
+            value={state.password}
+            handleChange={handleChange}
           />
         </div>
-        <Button text="LOGIN"/>
+        <Button text="LOGIN" />
       </form>
     </div>
-  )
+  );
 }
 
 export default LoginPage

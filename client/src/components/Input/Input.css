@@ -1,5 +1,6 @@
 :root {
   --title-font: 'Russo One', sans-serif;
+  --text-font: 'Roboto', sans-serif;
   --light-green: #3ed057;
   --dark-green: #0e4429;
   --light-grey: #5e6670;
@@ -8,8 +9,10 @@
   --white: #FFFFFF;
 }
 
+.email, 
+.password, 
 .username, 
-.password {
+.passwordConf {
     width: 100%;
     height: 90%;
     outline: none;
@@ -18,9 +21,14 @@
     border-radius: 3px;
     transition: 0.5s;
     margin-top: 5px;
+    color: var(--white);
+    font-family: var(--text-font);
+    font-size: 16px;
 }
 
+.email:focus, 
+.password:focus, 
 .username:focus, 
-.password:focus {
+.passwordConf:focus {
     outline: 1px solid var(--light-green);
 }

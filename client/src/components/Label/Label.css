@@ -8,6 +8,6 @@
   --white: #FFFFFF;
 }
 
-.login-label {
+.auth-label {
     font-family: var(--title-font);
 }

@@ -5,8 +5,8 @@ import "./Label.css"
 function Label(props) {
 
     let label = 
-    ((props.label === "Email") || (props.label === "Password")) && (
-        <label className='login-label'>{props.label}</label>
+    ((props.label === "Email") || (props.label === "Password") || (props.label === "Username") || (props.label === "Password Confirmation")) && (
+        <label className='auth-label'>{props.label}</label>
     )
 
   return (

@@ -5,16 +5,28 @@ import "./Input.css"
 function Input(props) {
     let element = 
     props.name === "username" ? (
-        <input
-        type={props.type}
-        value={props.value}
-        name={props.name}
-        onChange={(e) => props.handleChange(e)}
-        onBlur={props.blurHandler}
-        className={props.name}
-        label={props.label}
+    <input
+    type={props.type}
+    value={props.value}
+    name={props.name}
+    onChange={(e) => props.handleChange(e)}
+    onBlur={props.blurHandler}
+    className={props.name}
+    label={props.label}
+    required
         />
-  ) : (props.name === "password" || props.name === "password_confirmation") && (
+    ) : (props.name === "email") ? (
+    <input
+    type={props.type}
+    value={props.value}
+    name={props.name}
+    onChange={(e) => props.handleChange(e)}
+    onBlur={props.blurHandler}
+    className={props.name}
+    label={props.label}
+    required
+        />
+  ) : (props.name === "password" || props.name === "passwordConf") && (
     <input 
     type={props.type}
     value={props.value}
@@ -23,6 +35,7 @@ function Input(props) {
     onBlur={props.blurHandler}
     className={props.name}
     autoComplete={props.autoComplete}
+    required
     />
   ) 
   return (

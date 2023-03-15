@@ -5,10 +5,9 @@ import "./Button.css"
 function Button(props) {
 
     let button = 
-    props.text === "LOGIN" && (
-        <button className='login-btn'>LOGIN</button>
+    (props.text === "LOGIN" || props.text === "SIGN UP") &&  (
+        <button className='login-btn'>{props.text}</button>
     )
-
   return (
     <>
     {button}
