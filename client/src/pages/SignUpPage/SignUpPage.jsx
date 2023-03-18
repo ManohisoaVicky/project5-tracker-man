@@ -1,4 +1,8 @@
 import React, { useState, } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+import { signUp } from '../../utils/userServices'
+import useUser from '../../hooks/useUser'
 
 import Input from '../../components/Input/Input'
 import Button from '../../components/Button/Button'
@@ -6,6 +10,10 @@ import Label from '../../components/Label/Label'
 import "./SignUpPage.css"
 
 function SignUpPage() {
+
+  const navigate = useNavigate()
+
+  const { handleAuth } = useUser()
 
   const [state, setState] = useState({
     username: "",
@@ -17,13 +25,24 @@ function SignUpPage() {
   const handleChange = (e) => {
     setState({
       ...state, 
-      [e.target.name]: [e.target.value]
+      [e.target.name]: e.target.value
     })
   }
 
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        await signUp(state);
+        handleAuth();
+        navigate("/");
+      } catch (error) {
+        alert("Invalid credentials!");
+      }
+    };
+
   return (
     <div id="signup-pg-cont">
-      <form id="signup-form">
+      <form id="signup-form" onSubmit={handleSubmit}>
         <div className="signup-input-container">
           <Label label="Username" />
           <Input

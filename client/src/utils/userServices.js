@@ -23,7 +23,6 @@ function logOut() {
 }
 
 function login(cred) {
-  console.log("we're in the login function");
   return fetch(BASE_URL + "login", {
     method: "POST",
     headers: new Headers({ "Content-Type": "application/json" }),
