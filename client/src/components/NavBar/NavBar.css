@@ -37,6 +37,7 @@
 #nav-user-cont {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 
     width: 10%;
 }
@@ -73,5 +74,18 @@
 #navUsername {
     font-family: var(--title-font);
     font-weight: bold;
+}
+
+.logout-btn {
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: none;
+    font-family: var(--title-font);
+    background-color: var(--light-grey);
+    color: var(--white);
+}
+
+.logout-btn:hover {
+    cursor: pointer;
 }
 

@@ -23,15 +23,3 @@
     border-radius: 2px;
 }
 
-.logout-btn {
-    padding: 5px 10px;
-    border-radius: 15px;
-    border: none;
-    font-family: var(--title-font);
-    background-color: var(--light-grey);
-    color: var(--white);
-}
-
-.logout-btn:hover {
-    cursor: pointer;
-}

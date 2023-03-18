@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink, Link }  from "react-router-dom"
 
 import useUser from '../../hooks/useUser'
-import Button from '../Button/Button'
 
 import "./NavBar.css"
 
@@ -12,7 +11,7 @@ function NavBar() {
 
   let navLeft = user ? (
     <div id='nav-user-cont'>
-      <Button text="LOG OUT" handleLogOut={handleLogOut} />
+      <p onClick={handleLogOut} className="logout-btn">LOG OUT</p>
       <p id="navUsername">{user.username.toUpperCase()}</p>
     </div>
   ) : (
