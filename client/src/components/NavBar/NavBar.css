@@ -30,6 +30,7 @@
 #auth-btn-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     width: 10%;
 }
@@ -81,8 +82,8 @@
     border-radius: 15px;
     border: none;
     font-family: var(--title-font);
-    background-color: var(--light-grey);
-    color: var(--white);
+    background-color: var(--light-green);
+    color: var(--dark);
 }
 
 .logout-btn:hover {

@@ -1,11 +1,28 @@
 import React from 'react'
 
+import useUser from '../../hooks/useUser'
+
+import DefaultPage from '../DefaultPage/DefaultPage'
+import DashboardPage from '../DashboardPage/DashboardPage'
 import "./HomePage.css"
 
 function HomePage() {
+
+  const { user } = useUser()
+
   return (
     <div id='homepage-container'>
-      <h1>MERAKI SCANS</h1>
+      {
+        user ? (
+          <>
+            <DashboardPage />
+          </>
+        ) : (
+          <>
+            <DefaultPage />
+          </>
+        )
+      }
     </div>
   )
 }
