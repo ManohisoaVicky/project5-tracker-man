@@ -1,4 +1,4 @@
-import tokenService from "./tokenServices";
+import { setToken, getUserFromToken, removeToken } from "./tokenServices";
 import BASE_URL from "./constants";
 
 function signUp(user) {
@@ -11,18 +11,19 @@ function signUp(user) {
       if (res.ok) return res.json();
       throw new Error("Email already taken!");
     })
-    .then(({ token }) => tokenService.setToken(token));
+    .then(({ token }) => setToken(token));
 }
 
 function getUser() {
-  return tokenService.getUserFromToken();
+  return getUserFromToken();
 }
 
 function logOut() {
-  tokenService.removeToken();
+  removeToken();
 }
 
 function login(cred) {
+  console.log("we're in the login function");
   return fetch(BASE_URL + "login", {
     method: "POST",
     headers: new Headers({ "Content-Type": "application/json" }),
@@ -32,9 +33,7 @@ function login(cred) {
       if (res.ok) return res.json();
       throw new Error("Invalid credentials");
     })
-    .then(({ token }) => tokenService.setToken(token));
+    .then(({ token }) => setToken(token));
 }
 
-const exports = [signUp, getUser, logOut, login];
-
-export default exports;
+export { signUp, getUser, logOut, login };

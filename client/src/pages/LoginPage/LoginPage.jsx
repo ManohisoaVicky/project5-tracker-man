@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
 
+import { login } from "../../utils/userServices"
+import useUser from "../../hooks/useUser"
+
 import Input from '../../components/Input/Input.jsx'
 import Button from '../../components/Button/Button.jsx'
 import Label from '../../components/Label/Label.jsx'
 import "./LoginPage.css"
 
 function LoginPage() {
+
+  const { handleAuth } = useUser()
 
   const [state, setState] = useState({
     email: "",
@@ -19,9 +24,19 @@ function LoginPage() {
     })
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      await login(state)
+      handleAuth()
+    } catch (error) {
+      alert("Invalid credentials!")
+    }
+  }
+
   return (
     <div id="login-pg-cont">
-      <form id="login-form">
+      <form id="login-form" onSubmit={handleSubmit}>
         <div className="login-input-container">
           <Label label="Email" />
           <Input
