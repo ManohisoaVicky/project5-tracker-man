@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { login } from "../../utils/userServices"
 import useUser from "../../hooks/useUser"
@@ -9,6 +10,8 @@ import Label from '../../components/Label/Label.jsx'
 import "./LoginPage.css"
 
 function LoginPage() {
+
+  const navigate = useNavigate()
 
   const { handleAuth } = useUser()
 
@@ -29,6 +32,7 @@ function LoginPage() {
     try {
       await login(state)
       handleAuth()
+      navigate("/")
     } catch (error) {
       alert("Invalid credentials!")
     }

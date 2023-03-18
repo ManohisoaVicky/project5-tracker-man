@@ -1,9 +1,13 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { UserContext } from "../context/UserContext";
 import { getUser, logOut } from "../utils/userServices";
 import { getUserFromToken } from "../utils/tokenServices";
 
 export default function useUser() {
+  const navigate = useNavigate();
+
   const [state, setState] = useContext(UserContext);
 
   const handleAuth = () => {
@@ -14,6 +18,7 @@ export default function useUser() {
   const handleLogOut = () => {
     logOut();
     setState({ ...state, user: null });
+    navigate("/");
   };
 
   const refreshAuth = () => {

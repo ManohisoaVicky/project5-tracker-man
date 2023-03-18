@@ -34,6 +34,13 @@
     width: 10%;
 }
 
+#nav-user-cont {
+    display: flex;
+    justify-content: space-around;
+
+    width: 10%;
+}
+
 #auth-btn-container > a {
     text-decoration: none;
 }
@@ -62,3 +69,9 @@
     border: none;
     color: var(--light-green);
 }
+
+#navUsername {
+    font-family: var(--title-font);
+    font-weight: bold;
+}
+
