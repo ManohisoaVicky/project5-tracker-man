@@ -4,7 +4,7 @@ import "./DashboardPage.css"
 
 function DashboardPage() {
   return (
-    <div>DashboardPage</div>
+    <div id='dashboardPage'>DashboardPage</div>
   )
 }
 

@@ -11,7 +11,7 @@ function HomePage() {
   const { user } = useUser()
 
   return (
-    <div id='homepage-container'>
+    <div className='homepage-container'>
       {
         user ? (
           <>

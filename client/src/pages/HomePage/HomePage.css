@@ -8,7 +8,7 @@
   --white: #FFFFFF;
 }
 
-#homepage-container {
+.homepage-container {
     background-color: var(--dark);
     color: var(--white);
     height: 100%;
@@ -16,6 +16,6 @@
     padding: 0px 30px;
 }
 
-#homepage-container > h1 {
+.homepage-container > h1 {
     margin: 0;
 }

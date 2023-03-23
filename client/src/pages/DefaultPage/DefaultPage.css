@@ -1,0 +1,60 @@
+:root {
+  --title-font: 'Russo One', sans-serif;
+  --light-green: #3ed057;
+  --dark-green: #0e4429;
+  --light-grey: #5e6670;
+  --dark-grey: #2a3038;
+  --dark: #22272e;
+  --white: #FFFFFF;
+}
+
+.defaultPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+#default-title {
+    margin: 0;
+    padding: 0;
+    font-size: 56px;
+    font-family: var(--title-font);
+}
+
+#default-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 80%;
+    height: 30%;
+}
+
+#default-slogan {
+    color: var(--dark-grey);
+    transition: all 1s;
+}
+
+#default-slogan:hover {
+    color: var(--light-grey);
+    cursor: pointer;
+}
+
+#default-btn {
+    text-decoration: none;
+    background-color: var(--light-green);
+    color: var(--dark);
+    border-radius: 5px;
+    padding: 7px 14px;
+    box-shadow: none;
+    transition: all 1s;
+}
+
+#default-btn:hover {
+    cursor: pointer;
+    box-shadow: var(--light-grey) 0px 3px 8px;
+}

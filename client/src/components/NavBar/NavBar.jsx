@@ -27,7 +27,7 @@ function NavBar() {
 
   return (
     <div id='navbar-container'>
-      <NavLink to="/" id='navbar-title'>MERAKI SCANS</NavLink>
+      <NavLink to="/" id='navbar-title'>TRACKER SCANS</NavLink>
         {navLeft}
     </div>
   )
