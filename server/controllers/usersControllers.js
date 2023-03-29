@@ -36,11 +36,20 @@ async function login(req, res) {
 }
 
 function createJWT(user) {
-  return jwt.sign({ user }, SECRET, { expiresIn: "24h" });
-  // const payload = {
-  //   userId: user._id,
-  // };
-  // return jwt.sign(payload, SECRET, { expiresIn: "24h" });
+  // return jwt.sign({ user }, SECRET, { expiresIn: "24h" });
+  const payload = {
+    userId: user._id,
+  };
+  return jwt.sign(payload, SECRET, { expiresIn: "24h" });
 }
 
-export { signup, login };
+async function getUserInfo(req, res, next) {
+  try {
+    const user = await User.findById(req.params.id);
+    res.json(user);
+  } catch (error) {
+    return res.status(404).json(error);
+  }
+}
+
+export { signup, login, getUserInfo };

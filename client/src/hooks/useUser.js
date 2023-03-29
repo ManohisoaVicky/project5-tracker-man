@@ -10,8 +10,8 @@ export default function useUser() {
 
   const [state, setState] = useContext(UserContext);
 
-  const handleAuth = () => {
-    const freshUser = getUser();
+  const handleAuth = async () => {
+    const freshUser = await getUser();
     setState((state) => ({ ...state, user: freshUser }));
   };
 
@@ -21,11 +21,11 @@ export default function useUser() {
     navigate("/");
   };
 
-  const refreshAuth = () => {
+  const refreshAuth = async () => {
     if (typeof window == "undefined") return false;
 
     if (localStorage.getItem("token")) {
-      const user = getUserFromToken();
+      const user = await getUserFromToken();
       return setState({ ...state, user });
     } else return false;
   };

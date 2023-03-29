@@ -14,8 +14,8 @@ function signUp(user) {
     .then(({ token }) => setToken(token));
 }
 
-function getUser() {
-  return getUserFromToken();
+async function getUser() {
+  return await getUserFromToken();
 }
 
 function logOut() {
