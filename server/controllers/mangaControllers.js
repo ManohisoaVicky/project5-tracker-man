@@ -7,7 +7,7 @@ async function getUserMangas(req, res, next) {
     if (!user) {
       return res.status(400).json({ error: true, message: "User not found." });
     }
-    res.json(user);
+    res.json(user.mangas);
   } catch (error) {
     if (error instanceof CastError) {
       res.status(400).send({ error: "Invalid id." });
@@ -16,12 +16,16 @@ async function getUserMangas(req, res, next) {
 }
 
 async function trackManga(req, res, next) {
-  const manga = new Manga(req.body);
   try {
+    const manga = new Manga(req.body);
     await manga.save();
-    res.json(manga);
-  } catch (error) {
-    res.status(400).json(error);
+    res.status(201).json(manga);
+  } catch (err) {
+    if (err.name === "ValidationError") {
+      res.status(400).json({ message: err.message });
+    } else {
+      next(err);
+    }
   }
 }
 
