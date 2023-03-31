@@ -9,7 +9,7 @@ const SECRET = process.env.SECRET;
 export async function checkPermission(req, res, next) {
   try {
     const token = req.headers.authorization.split(" ")[1];
-    const decodedToken = jwt.verify(token, process.env.SECRET);
+    const decodedToken = jwt.verify(token, SECRET);
     const userId = decodedToken.userId;
     const mangaId = req.params.id;
     const user = await User.findById(userId);

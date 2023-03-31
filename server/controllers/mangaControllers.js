@@ -1,17 +1,25 @@
 import Manga from "../models/manga.js";
 import User from "../models/user.js";
+import dotenv from "dotenv";
+import jwt from "jsonwebtoken";
+
+dotenv.config();
+
+const SECRET = process.env.SECRET;
 
 async function getUserMangas(req, res, next) {
   try {
-    const user = await User.findById(req.params.id).populate("mangas");
+    const token = req.headers.authorization.split(" ")[1];
+    const decodedToken = jwt.verify(token, SECRET);
+    const userId = decodedToken.userId;
+
+    const user = await User.findById(userId).populate("mangas");
     if (!user) {
       return res.status(400).json({ error: true, message: "User not found." });
     }
     res.json(user.mangas);
   } catch (error) {
-    if (error instanceof CastError) {
-      res.status(400).send({ error: "Invalid id." });
-    }
+    next(error);
   }
 }
 

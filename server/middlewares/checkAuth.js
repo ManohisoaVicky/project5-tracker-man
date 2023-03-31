@@ -8,7 +8,6 @@ const SECRET = process.env.SECRET;
 
 export function checkAuth(req, res, next) {
   if (req.user) return next();
-  // return res.status(401).json({ message: "Unauthorized action!" });
   const authHeader = req.headers.authorization;
   const token = authHeader && authHeader.split(" ")[1];
   if (!token) return res.status(401).json({ message: "Unauthorized" });
