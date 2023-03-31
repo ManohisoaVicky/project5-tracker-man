@@ -5,7 +5,7 @@ const mangaSchema = new mongoose.Schema(
     name: [{ type: String, required: true }],
     artist: [{ type: String, required: true }],
     summary: { type: String },
-    chapters: { type: Number },
+    chapRead: { type: Number },
     comicStatus: { type: String },
     readingStatus: { type: String },
     rating: { type: Number },

@@ -19,6 +19,8 @@ async function trackManga(req, res, next) {
   try {
     const manga = new Manga(req.body);
     await manga.save();
+    const userId = req.user._id;
+    await User.findByIdAndUpdate(userId, { $push: { mangas: manga._id } });
     res.status(201).json(manga);
   } catch (err) {
     if (err.name === "ValidationError") {
