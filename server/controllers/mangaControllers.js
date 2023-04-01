@@ -54,4 +54,13 @@ async function updateManga(req, res, next) {
   }
 }
 
-export { getUserMangas, trackManga, updateManga };
+async function getManga(req, res, next) {
+  try {
+    const manga = await Manga.findById(req.params.id);
+    res.json(manga);
+  } catch (error) {
+    next(error);
+  }
+}
+
+export { getUserMangas, trackManga, updateManga, getManga };

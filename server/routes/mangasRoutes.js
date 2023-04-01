@@ -3,6 +3,7 @@ import {
   getUserMangas,
   trackManga,
   updateManga,
+  getManga,
 } from "../controllers/mangaControllers.js";
 import { checkAuth } from "../middlewares/checkAuth.js";
 import { checkPermission } from "../middlewares/checkPermission.js";
@@ -11,6 +12,9 @@ const router = express.Router();
 
 router.route("/").get(checkAuth, getUserMangas).post(checkAuth, trackManga);
 
-router.route("/:id").patch(checkAuth, checkPermission, updateManga);
+router
+  .route("/:id")
+  .get(checkAuth, checkPermission, getManga)
+  .patch(checkAuth, checkPermission, updateManga);
 
 export default router;
