@@ -32,7 +32,7 @@ async function trackManga(req, res, next) {
     res.status(201).json(manga);
   } catch (err) {
     if (err.name === "ValidationError") {
-      res.status(400).json({ message: err.message });
+      return res.status(400).json({ message: err.message });
     } else {
       next(err);
     }
@@ -63,4 +63,36 @@ async function getManga(req, res, next) {
   }
 }
 
-export { getUserMangas, trackManga, updateManga, getManga };
+async function deleteManga(req, res, next) {
+  try {
+    const token = req.headers.authorization.split(" ")[1];
+    const decodedToken = jwt.verify(token, SECRET);
+    const userId = decodedToken.userId;
+
+    const manga = await Manga.findById(req.params.id);
+    if (!manga) {
+      return res.status(404).send("Manga not found");
+    }
+
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
+    const mangaIndex = user.mangas.indexOf(manga._id);
+
+    if (mangaIndex >= 0) {
+      user.mangas.splice(mangaIndex, 1);
+    }
+
+    await user.save();
+
+    await manga.delete();
+
+    res.send("Manga deleted successfully");
+  } catch (error) {
+    next(error);
+  }
+}
+
+export { getUserMangas, trackManga, updateManga, getManga, deleteManga };
