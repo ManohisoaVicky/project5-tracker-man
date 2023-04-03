@@ -8,13 +8,7 @@
   --white: #FFFFFF;
 }
 
-.homepage-container {
+#trackPage {
     background-color: var(--dark);
     color: var(--white);
-    height: 90%;
-    font-family: var(--title-font);
-}
-
-.homepage-container > h1 {
-    margin: 0;
 }

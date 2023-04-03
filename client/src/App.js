@@ -8,6 +8,7 @@ import HomePage from "../src/pages/HomePage/HomePage.jsx";
 import LoginPage from "../src/pages/LoginPage/LoginPage.jsx";
 import SignUpPage from "../src/pages/SignUpPage/SignUpPage.jsx";
 import NavBar from "../src/components/NavBar/NavBar.jsx";
+import TrackPage from "./pages/TrackPage/TrackPage";
 
 function App() {
   const { refreshAuth } = useUser();
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/login" element={<LoginPage />} />
         <Route exact path="/signup" element={<SignUpPage />} />
+        <Route exact path="/track" element={<TrackPage />} />
       </Routes>
     </div>
   );
