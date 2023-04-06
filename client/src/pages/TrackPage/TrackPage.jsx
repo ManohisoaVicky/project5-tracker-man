@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import DynamicInput from "../../components/DynamicInput/DynamicInput.jsx";
+import AddTag from '../../components/AddTag/AddTag.jsx';
 import "./TrackPage.css"
 
 function TrackPage() {
@@ -70,6 +71,7 @@ function TrackPage() {
           label="Artist"
           btnTxt="ADD ARTIST"
         />
+        <AddTag manga={manga} setManga={setManga} />
       </form>
     </div>
   );
