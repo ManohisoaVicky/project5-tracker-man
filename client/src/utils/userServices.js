@@ -1,5 +1,5 @@
 import { setToken, getUserFromToken, removeToken } from "./tokenServices";
-import BASE_URL from "./constants";
+import { BASE_URL } from "./constants";
 
 function signUp(user) {
   return fetch(BASE_URL + "signup", {
