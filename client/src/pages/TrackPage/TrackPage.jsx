@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import DynamicInput from "../../components/DynamicInput/DynamicInput.jsx";
+import DynamicInput from "../../components/Inputs/DynamicInput/DynamicInput.jsx";
 import AddTag from '../../components/AddTag/AddTag.jsx';
 import "./TrackPage.css"
 

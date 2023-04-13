@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { signUp } from '../../utils/userServices'
 import useUser from '../../hooks/useUser'
 
-import Input from '../../components/Input/Input'
+import AuthInput from '../../components/Inputs/AuthInput/AuthInput'
 import Button from '../../components/Button/Button'
 import Label from '../../components/Label/Label'
 import "./SignUpPage.css"
@@ -45,7 +45,7 @@ function SignUpPage() {
       <form id="signup-form" onSubmit={handleSubmit}>
         <div className="signup-input-container">
           <Label label="Username" />
-          <Input
+          <AuthInput
             name="username"
             type="username"
             value={state.username}
@@ -54,7 +54,7 @@ function SignUpPage() {
         </div>
         <div className="signup-input-container">
           <Label label="Email" />
-          <Input
+          <AuthInput
             name="email"
             type="email"
             value={state.email}
@@ -63,7 +63,7 @@ function SignUpPage() {
         </div>
         <div className="signup-input-container">
           <Label label="Password" />
-          <Input
+          <AuthInput
             name="password"
             type="password"
             value={state.password}
@@ -72,7 +72,7 @@ function SignUpPage() {
         </div>
         <div className="signup-input-container">
           <Label label="Password Confirmation" />
-          <Input
+          <AuthInput
             name="passwordConf"
             type="password"
             value={state.passwordConf}

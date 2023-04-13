@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { login } from "../../utils/userServices"
 import useUser from "../../hooks/useUser"
 
-import Input from '../../components/Input/Input.jsx'
+import AuthInput from '../../components/Inputs/AuthInput/AuthInput.jsx'
 import Button from '../../components/Button/Button.jsx'
 import Label from '../../components/Label/Label.jsx'
 import "./LoginPage.css"
@@ -43,7 +43,7 @@ function LoginPage() {
       <form id="login-form" onSubmit={handleSubmit}>
         <div className="login-input-container">
           <Label label="Email" />
-          <Input
+          <AuthInput
             name="email"
             type="email"
             value={state.email}
@@ -52,7 +52,7 @@ function LoginPage() {
         </div>
         <div className="login-input-container">
           <Label label="Password" />
-          <Input
+          <AuthInput
             name="password"
             type="password"
             value={state.password}

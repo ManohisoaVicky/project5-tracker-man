@@ -1,8 +1,8 @@
 import React from 'react'
 
-import "./Input.css"
+import "./AuthInput.css"
 
-function Input(props) {
+function AuthInput(props) {
     let element = 
     props.name === "username" ? (
     <input
@@ -43,4 +43,4 @@ function Input(props) {
   )
 }
 
-export default Input
+export default AuthInput
