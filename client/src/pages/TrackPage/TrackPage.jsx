@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import DynamicInput from "../../components/Inputs/DynamicInput/DynamicInput.jsx";
 import AddTag from '../../components/AddTag/AddTag.jsx';
+import NumberInput from '../../components/Inputs/NumberInput/NumberInput.jsx';
 import "./TrackPage.css"
 
 function TrackPage() {
@@ -37,7 +38,7 @@ function TrackPage() {
     name: [""], 
     artist: [""], 
     summary: null, 
-    chapRead: null,
+    chapRead: 0,
     comicStatus: null, 
     readingStatus: null, 
     rating: null, 
@@ -72,6 +73,7 @@ function TrackPage() {
           btnTxt="ADD ARTIST"
         />
         <AddTag manga={manga} setManga={setManga} />
+        <NumberInput manga={manga} setManga={setManga} />
       </form>
     </div>
   );
