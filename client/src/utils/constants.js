@@ -79,4 +79,25 @@ const MANGA_TAGS = [
   "zombies",
 ];
 
-export { BASE_URL, MANGA_TAGS };
+const MANGA_TYPE = [
+  "manga",
+  "manwha",
+  "manhua",
+  "webtoon",
+  "comic",
+  "western",
+  "indie",
+];
+
+const COMIC_STATUS = ["ongoing", "completed", "hiatus", "dropped", "unknown"];
+
+const READING_STATUS = [
+  "reading",
+  "completed",
+  "on hold",
+  "plan to read",
+  "re-reading",
+  "dropped",
+];
+
+export { BASE_URL, MANGA_TAGS, MANGA_TYPE, COMIC_STATUS, READING_STATUS };

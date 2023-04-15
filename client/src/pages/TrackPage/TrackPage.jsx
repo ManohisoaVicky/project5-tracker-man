@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 
+import { MANGA_TYPE, COMIC_STATUS, READING_STATUS } from '../../utils/constants.js';
+
 import DynamicInput from "../../components/Inputs/DynamicInput/DynamicInput.jsx";
 import AddTag from '../../components/AddTag/AddTag.jsx';
 import NumberInput from '../../components/Inputs/NumberInput/NumberInput.jsx';
+import MangaSelect from '../../components/Inputs/MangaSelect/MangaSelect.jsx';
 import "./TrackPage.css"
 
 function TrackPage() {
@@ -34,11 +37,24 @@ function TrackPage() {
       });
     };
 
+    const handleTypeChange = (e) => {
+      setManga((prev) => ({ ...prev, type: e.target.value }));
+    }
+
+    const handleCStatusChange = (e) => {
+      setManga((prev) => ({ ...prev, comicStatus: e.target.value }));
+    }
+
+    const handleRStatusChange = (e) => {
+      setManga((prev) => ({ ...prev, readingStatus: e.target.value }));
+    }
+
   const [manga, setManga] = useState({
     name: [""], 
     artist: [""], 
     summary: null, 
     chapRead: 0,
+    type: null,
     comicStatus: null, 
     readingStatus: null, 
     rating: null, 
@@ -74,6 +90,9 @@ function TrackPage() {
         />
         <AddTag manga={manga} setManga={setManga} />
         <NumberInput manga={manga} setManga={setManga} />
+        <MangaSelect opt={MANGA_TYPE} text="Type" selectedValue={""} handleChange={handleTypeChange}/>
+        <MangaSelect opt={COMIC_STATUS} text="Comic status" selectedValue={""} handleChange={handleCStatusChange}/>
+        <MangaSelect opt={READING_STATUS} text="Reading status" selectedValue={""} handleChange={handleRStatusChange}/>
       </form>
     </div>
   );
