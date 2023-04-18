@@ -6,6 +6,7 @@ import DynamicInput from "../../components/Inputs/DynamicInput/DynamicInput.jsx"
 import AddTag from '../../components/AddTag/AddTag.jsx';
 import NumberInput from '../../components/Inputs/NumberInput/NumberInput.jsx';
 import MangaSelect from '../../components/Inputs/MangaSelect/MangaSelect.jsx';
+import TextEditor from "../../components/TextEditor/TextEditor.jsx"
 import "./TrackPage.css"
 
 function TrackPage() {
@@ -93,6 +94,7 @@ function TrackPage() {
         <MangaSelect opt={MANGA_TYPE} text="Type" selectedValue={""} handleChange={handleTypeChange}/>
         <MangaSelect opt={COMIC_STATUS} text="Comic status" selectedValue={""} handleChange={handleCStatusChange}/>
         <MangaSelect opt={READING_STATUS} text="Reading status" selectedValue={""} handleChange={handleRStatusChange}/>
+        <TextEditor manga={manga} setManga={setManga} />
       </form>
     </div>
   );
