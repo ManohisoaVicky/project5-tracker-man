@@ -10,16 +10,17 @@
 
 .ql-editor {
   background-color: #f0f0f0;
+  color: var(--dark);
 }
 
 .ql-editor p {
   font-size: 16px;
 }
 
-.ql-editor p {
+/* .ql-editor p {
   color: #333;
 }
 
 .ql-toolbar .ql-fill {
   fill: #333;
-}
+} */

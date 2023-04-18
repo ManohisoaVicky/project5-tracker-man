@@ -9,7 +9,13 @@ function MyEditor({ manga, setManga}) {
     setManga((prev) => ({ ...prev, summary: value }));
   }
 
-  return <ReactQuill value={manga.summary} onChange={handleChange} />;
+  const toolbarConfig = {
+    toolbar: {
+      container: [[{ header: 2 }], ["bold", "italic", "underline"]],
+    },
+  };
+
+  return <ReactQuill value={manga.summary} onChange={handleChange} modules={toolbarConfig}/>;
 }
 
 export default MyEditor;
