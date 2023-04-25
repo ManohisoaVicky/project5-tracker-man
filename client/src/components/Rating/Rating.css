@@ -1,0 +1,42 @@
+:root {
+  --title-font: 'Russo One', sans-serif;
+  --light-green: #3ed057;
+  --dark-green: #0e4429;
+  --light-grey: #5e6670;
+  --dark-grey: #2a3038;
+  --dark: #22272e;
+  --white: #FFFFFF;
+}
+
+.rating {
+  display: inline-block;
+  font-size: 2rem;
+}
+
+.star {
+  display: inline-block;
+  cursor: pointer;
+  color: #ddd;
+  font-size: 1.5rem; 
+  transition: transform 0.2s;
+}
+
+.hovered,
+.hovered ~ .star {
+  color: var(--light-green);
+}
+
+.selected,
+.selected ~ .star {
+  color: var(--light-green);
+}
+
+.hidden {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+
+
+

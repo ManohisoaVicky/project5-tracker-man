@@ -7,6 +7,7 @@ import AddTag from '../../components/AddTag/AddTag.jsx';
 import NumberInput from '../../components/Inputs/NumberInput/NumberInput.jsx';
 import MangaSelect from '../../components/Inputs/MangaSelect/MangaSelect.jsx';
 import TextEditor from "../../components/TextEditor/TextEditor.jsx"
+import Rating from '../../components/Rating/Rating.jsx';
 import "./TrackPage.css"
 
 function TrackPage() {
@@ -50,6 +51,10 @@ function TrackPage() {
       setManga((prev) => ({ ...prev, readingStatus: e.target.value }));
     }
 
+    const handleRatingChange = (newRating) => {
+      setManga((prevManga) => ({ ...prevManga, rating: newRating }));
+    };
+
   const [manga, setManga] = useState({
     name: [""], 
     artist: [""], 
@@ -59,7 +64,6 @@ function TrackPage() {
     comicStatus: null, 
     readingStatus: null, 
     rating: null, 
-    review: null,
     tags: []
   })
 
@@ -91,10 +95,26 @@ function TrackPage() {
         />
         <AddTag manga={manga} setManga={setManga} />
         <NumberInput manga={manga} setManga={setManga} />
-        <MangaSelect opt={MANGA_TYPE} text="Type" selectedValue={""} handleChange={handleTypeChange}/>
-        <MangaSelect opt={COMIC_STATUS} text="Comic status" selectedValue={""} handleChange={handleCStatusChange}/>
-        <MangaSelect opt={READING_STATUS} text="Reading status" selectedValue={""} handleChange={handleRStatusChange}/>
+        <MangaSelect
+          opt={MANGA_TYPE}
+          text="Type"
+          selectedValue={""}
+          handleChange={handleTypeChange}
+        />
+        <MangaSelect
+          opt={COMIC_STATUS}
+          text="Comic status"
+          selectedValue={""}
+          handleChange={handleCStatusChange}
+        />
+        <MangaSelect
+          opt={READING_STATUS}
+          text="Reading status"
+          selectedValue={""}
+          handleChange={handleRStatusChange}
+        />
         <TextEditor manga={manga} setManga={setManga} />
+        <Rating rating={manga.rating} onRatingChange={handleRatingChange} />
       </form>
     </div>
   );
