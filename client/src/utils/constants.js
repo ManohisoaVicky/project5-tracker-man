@@ -1,5 +1,7 @@
 const BASE_URL = "/api/users/";
 
+const MANGA_URL = "api/mangas";
+
 const MANGA_TAGS = [
   "action",
   "adapation",

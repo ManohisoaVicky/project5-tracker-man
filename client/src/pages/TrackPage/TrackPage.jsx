@@ -8,6 +8,7 @@ import NumberInput from '../../components/Inputs/NumberInput/NumberInput.jsx';
 import MangaSelect from '../../components/Inputs/MangaSelect/MangaSelect.jsx';
 import TextEditor from "../../components/TextEditor/TextEditor.jsx"
 import Rating from '../../components/Rating/Rating.jsx';
+import Button from '../../components/Button/Button.jsx';
 import "./TrackPage.css"
 
 function TrackPage() {
@@ -115,6 +116,9 @@ function TrackPage() {
         />
         <TextEditor manga={manga} setManga={setManga} />
         <Rating rating={manga.rating} onRatingChange={handleRatingChange} />
+        <div>
+          <Button text="TRACK" />
+        </div>
       </form>
     </div>
   );
