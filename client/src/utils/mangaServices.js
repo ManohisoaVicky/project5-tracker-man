@@ -7,9 +7,10 @@ async function trackManga(manga) {
     let res = await fetch(MANGA_URL, {
       method: "POST",
       headers: {
+        "Content-Type": "application/json",
         Authorization: "Bearer " + token,
       },
-      body: manga,
+      body: JSON.stringify(manga),
     });
     return res.json();
   } catch (error) {

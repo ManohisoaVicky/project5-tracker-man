@@ -8,7 +8,7 @@ function Button(props) {
     (props.text === "LOGIN" || props.text === "SIGN UP") ?  (
         <button className='login-btn'>{props.text}</button>
     ) : (props.text === "TRACK") && (
-      <button className='track-btn'>{props.text}</button>
+      <button className='track-btn' onClick={props.clickHandler}>{props.text}</button>
     )
   return (
     <>

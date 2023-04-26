@@ -8,7 +8,6 @@ function AddTag({ manga, setManga }) {
   function handleTagsChange(e) {
     const value = e.target.value
     if (manga.tags.includes(value)) {
-      console.log("the value is there")
       const index = manga.tags.indexOf(value)
      setManga((prevState) => ({
        ...prevState,

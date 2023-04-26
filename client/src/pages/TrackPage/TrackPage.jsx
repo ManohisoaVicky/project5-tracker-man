@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 import { MANGA_TYPE, COMIC_STATUS, READING_STATUS } from '../../utils/constants.js';
+import { trackManga } from '../../utils/mangaServices.js';
 
 import DynamicInput from "../../components/Inputs/DynamicInput/DynamicInput.jsx";
 import AddTag from '../../components/AddTag/AddTag.jsx';
@@ -12,6 +14,8 @@ import Button from '../../components/Button/Button.jsx';
 import "./TrackPage.css"
 
 function TrackPage() {
+
+    const navigate = useNavigate()
 
     const handleAddFields = (fieldName) => {
       const values = [...manga[fieldName]];
@@ -55,6 +59,18 @@ function TrackPage() {
     const handleRatingChange = (newRating) => {
       setManga((prevManga) => ({ ...prevManga, rating: newRating }));
     };
+
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+      try {
+        trackManga(manga).then((res) => {
+          navigate("/")
+        })
+        console.log(manga)
+      } catch(error) {
+        console.log(error)
+      }
+    }
 
   const [manga, setManga] = useState({
     name: [""], 
@@ -117,7 +133,7 @@ function TrackPage() {
         <TextEditor manga={manga} setManga={setManga} />
         <Rating rating={manga.rating} onRatingChange={handleRatingChange} />
         <div>
-          <Button text="TRACK" />
+          <Button text="TRACK" clickHandler={handleSubmit}/>
         </div>
       </form>
     </div>
