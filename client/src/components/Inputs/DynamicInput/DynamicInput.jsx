@@ -9,7 +9,7 @@ function DynamicInput({ field, handleAddFields, handleInputChange, handleRemoveF
       <div className="dynamic_cont">
         <label htmlFor={fieldName}>{label}</label>
         {field.map((element, index) => (
-          <div key={index}>
+          <div key={index} className="dynamic_div">
             <input
               type="text"
               placeholder={placeholder}
@@ -21,13 +21,14 @@ function DynamicInput({ field, handleAddFields, handleInputChange, handleRemoveF
               <button
                 type="button"
                 onClick={() => handleRemoveFields(fieldName, index)}
+                className="remove_dynamic"
               >
                 Remove
               </button>
             )}
           </div>
         ))}
-        <button type="button" onClick={() => handleAddFields(fieldName)}>
+        <button type="button" onClick={() => handleAddFields(fieldName)} className="add_dynamic">
           {btnTxt}
         </button>
       </div>
