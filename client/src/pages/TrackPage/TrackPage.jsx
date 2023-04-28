@@ -87,7 +87,7 @@ function TrackPage() {
   return (
     <div id="trackPage">
       <h2>Track a Comic</h2>
-      <form>
+      <form id='track_form'>
         <DynamicInput
           setManga={setManga}
           handleAddFields={handleAddFields}

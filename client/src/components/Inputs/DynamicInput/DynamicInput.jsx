@@ -1,10 +1,12 @@
 import React from "react";
 
+import "./DynamicInput.css"
+
 function DynamicInput({ field, handleAddFields, handleInputChange, handleRemoveFields, fieldName, placeholder, label, btnTxt }) {
 
   return (
     <>
-      <div>
+      <div className="dynamic_cont">
         <label htmlFor={fieldName}>{label}</label>
         {field.map((element, index) => (
           <div key={index}>
@@ -13,6 +15,7 @@ function DynamicInput({ field, handleAddFields, handleInputChange, handleRemoveF
               placeholder={placeholder}
               value={element}
               onChange={(event) => handleInputChange(fieldName, index, event)}
+              className="dynamic_input"
             />
             {index > 0 && (
               <button

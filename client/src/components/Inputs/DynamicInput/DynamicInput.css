@@ -1,0 +1,29 @@
+:root {
+  --title-font: 'Russo One', sans-serif;
+  --text-font: 'Roboto', sans-serif;
+  --light-green: #3ed057;
+  --dark-green: #0e4429;
+  --light-grey: #5e6670;
+  --dark-grey: #2a3038;
+  --dark: #22272e;
+  --white: #FFFFFF;
+}
+
+.dynamic_cont {
+    width: 100%;
+    height: 5%;
+    outline: none;
+    background-color: var(--dark-grey);
+    border: 1px solid var(--light-grey);
+    border-radius: 3px;
+    transition: 0.5s;
+    margin-top: 5px;
+    color: var(--white);
+    font-family: var(--text-font);
+    font-size: 16px;
+}
+
+.dynamic_input {
+    width: 70%;
+    height: 100%;
+}
