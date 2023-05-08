@@ -1,3 +1,11 @@
 #add_tag_cont {
     margin-top: 30px;
 }
+
+#select_input {
+    width: 100%;
+}
+
+.tag_option {
+    text-align: left;
+}
