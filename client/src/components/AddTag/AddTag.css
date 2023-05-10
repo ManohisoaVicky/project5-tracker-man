@@ -14,11 +14,37 @@
 
 #select_input {
     width: 100%;
+    outline: none;
+    border-left: 2px solid var(--light-grey);
+    border-right: 2px solid var(--light-grey);
+    border-bottom: 2px solid var(--light-grey);
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
 
+#select_input::-webkit-scrollbar {
+    width: 8px;
+}
+
+#select_input::-webkit-scrollbar-track {
+    background-color: var(--light-grey);
+}
+
+#select_input::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 4px;
+}
+
+#select_input::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
+    background-color: var(--light-green);
 }
 
 .tag_option {
     text-align: left;
+    background-color: var(--dark);
+    color: white;
 }
 
 #selected_tag_cont {
@@ -69,4 +95,8 @@
 .select_icon {
     font-size: 2em;
     padding-right: 10px;
+}
+
+.select_icon:hover {
+    cursor: pointer;
 }
