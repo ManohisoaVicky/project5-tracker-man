@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { MANGA_TAGS } from "../../utils/constants";
 
 import "./AddTag.css";
 
 function AddTag({ manga, setManga }) {
   const [selectedTags, setSelectedTags] = useState(manga.tags);
+  const [visible, setVisible] = useState(false)
 
   function handleTagsChange(e) {
     const value = e.target.value;
@@ -30,6 +32,10 @@ function AddTag({ manga, setManga }) {
     }));
   }
 
+  function isVisible() {
+    setVisible(!visible)
+  }
+
   const availableTags = MANGA_TAGS.filter((tag) => !selectedTags.includes(tag));
 
   return (
@@ -45,23 +51,26 @@ function AddTag({ manga, setManga }) {
             </li>
           ))}
         </ul>
+        {visible ? (
+          <IoMdArrowDropup onClick={isVisible} className="select_icon" />
+        ) : (
+          <IoMdArrowDropdown onClick={isVisible} className="select_icon" />
+        )}
       </div>
-      <select
-        multiple
-        value={selectedTags}
-        onChange={handleTagsChange}
-        id="select_input"
-      >
-        <option disabled>──────────</option>
-        <option disabled value="" className="tag_option">
-          Add tags
-        </option>
-        {availableTags.map((tag) => (
-          <option key={tag} value={tag} className="tag_option">
-            {tag}
-          </option>
-        ))}
-      </select>
+      {visible && (
+        <select
+          multiple
+          value={selectedTags}
+          onChange={handleTagsChange}
+          id="select_input"
+        >
+          {availableTags.map((tag) => (
+            <option key={tag} value={tag} className="tag_option">
+              {tag}
+            </option>
+          ))}
+        </select>
+      )}
     </div>
   );
 }
