@@ -45,6 +45,13 @@
     text-align: left;
     background-color: var(--dark);
     color: white;
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.tag_option:hover {
+    cursor: pointer;
+    background-color: var(--light-grey);
 }
 
 #selected_tag_cont {
