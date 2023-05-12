@@ -77,9 +77,9 @@ function TrackPage() {
     artist: [""], 
     summary: null, 
     chapRead: 0,
-    type: null,
-    comicStatus: null, 
-    readingStatus: null, 
+    type: "",
+    comicStatus: "", 
+    readingStatus: "", 
     rating: null, 
     tags: []
   })
@@ -111,25 +111,27 @@ function TrackPage() {
           btnTxt="ADD ARTIST"
         />
         <AddTag manga={manga} setManga={setManga} />
-        <NumberInput manga={manga} setManga={setManga} />
-        <MangaSelect
-          opt={MANGA_TYPE}
-          text="Type"
-          selectedValue={""}
-          handleChange={handleTypeChange}
-        />
-        <MangaSelect
-          opt={COMIC_STATUS}
-          text="Comic status"
-          selectedValue={""}
-          handleChange={handleCStatusChange}
-        />
-        <MangaSelect
-          opt={READING_STATUS}
-          text="Reading status"
-          selectedValue={""}
-          handleChange={handleRStatusChange}
-        />
+        <div id='small_select_cont'>
+          <NumberInput manga={manga} setManga={setManga}/>
+          <MangaSelect
+            opt={MANGA_TYPE}
+            text="Type"
+            selectedValue={manga.type}
+            handleChange={handleTypeChange}
+          />
+          <MangaSelect
+            opt={COMIC_STATUS}
+            text="Comic status"
+            selectedValue={manga.comicStatus}
+            handleChange={handleCStatusChange}
+          />
+          <MangaSelect
+            opt={READING_STATUS}
+            text="Reading status"
+            selectedValue={manga.readingStatus}
+            handleChange={handleRStatusChange}
+          />
+        </div>
         <TextEditor manga={manga} setManga={setManga} />
         <Rating rating={manga.rating} onRatingChange={handleRatingChange} />
         <div>

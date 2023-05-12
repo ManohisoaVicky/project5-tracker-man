@@ -4,7 +4,11 @@ import "./MangaSelect.css";
 function MangaSelect({ opt, handleChange, text, selectedValue }) {
   return (
     <div>
-      <select onChange={handleChange} value={selectedValue}>
+      <select
+        onChange={handleChange}
+        value={selectedValue}
+        className="manga_select"
+      >
         <option disabled value="">
           {text}
         </option>
