@@ -1,4 +1,5 @@
 import React from "react";
+import "./NumberInput.css"
 
 const NumberInput = ({ manga, setManga }) => {
   const handleChange = (e) => {
@@ -21,6 +22,7 @@ const NumberInput = ({ manga, setManga }) => {
       <input
         type="number"
         min={0}
+        placeholder="Chapters Read"
         onChange={handleChange}
         onInput={handleInput}
       />

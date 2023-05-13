@@ -8,6 +8,10 @@
   --white: #FFFFFF;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html, body, #root {
   background-color: var(--dark);
   height: 100%;

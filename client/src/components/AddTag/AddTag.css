@@ -59,8 +59,8 @@
     justify-content: space-between;
 
     border: 2px solid var(--light-grey);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 #selected_tag_cont ul {

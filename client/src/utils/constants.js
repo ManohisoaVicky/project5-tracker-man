@@ -82,24 +82,24 @@ const MANGA_TAGS = [
 ];
 
 const MANGA_TYPE = [
-  "manga",
-  "manwha",
-  "manhua",
-  "webtoon",
-  "comic",
-  "western",
-  "indie",
+  " Manga",
+  " Manwha",
+  " Manhua",
+  " Webtoon",
+  " Comic",
+  " Western",
+  " Indie",
 ];
 
-const COMIC_STATUS = ["ongoing", "completed", "hiatus", "dropped", "unknown"];
+const COMIC_STATUS = ["Ongoing", "Completed", "Hiatus", "Dropped", "Unknown"];
 
 const READING_STATUS = [
-  "reading",
-  "completed",
-  "on hold",
-  "plan to read",
-  "re-reading",
-  "dropped",
+  "Reading",
+  "Completed",
+  "On Hold",
+  "Plan to Read",
+  "Re-reading",
+  "Dropped",
 ];
 
 export {
