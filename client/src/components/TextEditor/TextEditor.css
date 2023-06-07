@@ -9,8 +9,11 @@
 }
 
 .text-editor {
-  border: 1px solid grey;
-  width: 95%;
+  border: 2px solid var(--light-grey);
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 30px;
+  line-height: 0.4;
 }
 
 .menu-bar button {
@@ -20,6 +23,7 @@
   border: none;
   background: none;
   cursor: pointer;
+  color: white;
 }
 
 .menu-bar {
@@ -27,51 +31,37 @@
   justify-content: space-between;
   align-items: center;
   height: 3rem;
+  background-color: var(--dark-grey);
+  border-bottom: 2px solid var(--light-grey);
 }
 
 button.is-active {
-  background: var(--dark);
+  background: var(--light-green);
   padding: 5px;
   border-radius: 2px;
+  color: var(--dark);
 }
 
 .ProseMirror {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   padding: 10px;
-  background: var(--light-grey);
+  background: var(--dark);
   border-radius: 0 0 5px 5px;
   min-height: 200px;
+  outline: none;
 }
 
-.ProseMirror > * + * {
-    margin-top: 0.75em;
-  }
+.ProseMirror p {
+  color: white;
+}
 
-  .ProseMirror p {
-    color: black;
-  }
+.ProseMirror ul,
+.ProseMirror ol {
+  padding: 0 1rem;
+}
 
-  .ProseMirror ul,
-  .ProseMirror ol {
-    padding: 0 1rem;
-  }
+.ProseMirror ul {
+  list-style:disc;
+}
 
-  .ProseMirror ul {
-    list-style:disc;
-  }
-
-  .ProseMirror hr {
-    color: black;
-    border: 1px solid green;
-  }
-
-  .ProseMirror h3 {
-    display: block; 
-    font-size: 1.17em; 
-    margin-top: 0.5em; 
-    margin-bottom: 0.5em; 
-    margin-left: 0; 
-    margin-right: 0; 
-    font-weight: bold;
-  }

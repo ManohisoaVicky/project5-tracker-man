@@ -7,8 +7,6 @@ import Underline from "@tiptap/extension-underline";
 import {
   FaBold,
   FaItalic,
-  FaStrikethrough,
-  FaHeading,
   FaListOl,
   FaListUl,
   FaRedo,
@@ -57,27 +55,6 @@ const MenuBar = ({ editor }) => {
           className={editor.isActive("underline") ? "is-active" : ""}
         >
           <FaUnderline />
-        </button>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            editor.chain().focus().toggleStrike().run();
-          }}
-          disabled={!editor.can().chain().focus().toggleStrike().run()}
-          className={editor.isActive("strike") ? "is-active" : ""}
-        >
-          <FaStrikethrough />
-        </button>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            editor.chain().focus().toggleHeading({ level: 3 }).run();
-          }}
-          className={
-            editor.isActive("heading", { level: 3 }) ? "is-active" : ""
-          }
-        >
-          <FaHeading />
         </button>
         <button
           onClick={(e) => {
