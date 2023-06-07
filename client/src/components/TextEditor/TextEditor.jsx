@@ -1,21 +1,152 @@
 import React from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import './TextEditor.css'
 
-function MyEditor({ manga, setManga}) {
+import { EditorContent, useEditor } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import Underline from "@tiptap/extension-underline";
 
-  function handleChange(value) {
-    setManga((prev) => ({ ...prev, summary: value }));
+import {
+  FaBold,
+  FaItalic,
+  FaStrikethrough,
+  FaHeading,
+  FaListOl,
+  FaListUl,
+  FaRedo,
+  FaUndo,
+  FaUnderline,
+} from "react-icons/fa";
+
+import { MdHorizontalRule } from "react-icons/md";
+
+import "./TextEditor.css";
+
+const MenuBar = ({ editor }) => {
+  if (!editor) {
+    return null;
   }
 
-  const toolbarConfig = {
-    toolbar: {
-      container: [[{ header: 2 }], ["bold", "italic", "underline"]],
+  return (
+    <div className="menu-bar">
+      <div>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            editor.chain().focus().toggleBold().run();
+          }}
+          disabled={!editor.can().chain().focus().toggleBold().run()}
+          className={editor.isActive("bold") ? "is-active" : ""}
+        >
+          <FaBold />
+        </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            editor.chain().focus().toggleItalic().run();
+          }}
+          disabled={!editor.can().chain().focus().toggleItalic().run()}
+          className={editor.isActive("italic") ? "is-active" : ""}
+        >
+          <FaItalic />
+        </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            editor.chain().focus().toggleUnderline().run();
+          }}
+          disabled={!editor.can().chain().focus().toggleItalic().run()}
+          className={editor.isActive("underline") ? "is-active" : ""}
+        >
+          <FaUnderline />
+        </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            editor.chain().focus().toggleStrike().run();
+          }}
+          disabled={!editor.can().chain().focus().toggleStrike().run()}
+          className={editor.isActive("strike") ? "is-active" : ""}
+        >
+          <FaStrikethrough />
+        </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            editor.chain().focus().toggleHeading({ level: 3 }).run();
+          }}
+          className={
+            editor.isActive("heading", { level: 3 }) ? "is-active" : ""
+          }
+        >
+          <FaHeading />
+        </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            editor.chain().focus().toggleBulletList().run();
+          }}
+          className={editor.isActive("bulletList") ? "is-active" : ""}
+        >
+          <FaListUl />
+        </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            editor.chain().focus().toggleOrderedList().run();
+          }}
+          className={editor.isActive("orderedList") ? "is-active" : ""}
+        >
+          <FaListOl />
+        </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            editor.chain().focus().setHorizontalRule().run();
+          }}
+        >
+          <MdHorizontalRule />
+        </button>
+      </div>
+      <div>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            editor.chain().focus().undo().run();
+          }}
+          disabled={!editor.can().chain().focus().undo().run()}
+        >
+          <FaUndo />
+        </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            editor.chain().focus().redo().run();
+          }}
+          disabled={!editor.can().chain().focus().redo().run()}
+        >
+          <FaRedo />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+function TextEditor({ setManga, initValue }){
+  const editor = useEditor({
+    extensions: [StarterKit, Underline],
+    content: initValue,
+    editable: true,
+    onUpdate: ({ editor }) => {
+      const html = editor.getHTML();
+       setManga((prev) => ({ ...prev, summary: html }));
     },
-  };
+  });
 
-  return <ReactQuill value={manga.summary} onChange={handleChange} modules={toolbarConfig}/>;
-}
+  return (
+    <div className="text-editor">
+      <MenuBar editor={editor} />
+      <EditorContent editor={editor} spellCheck="false" />
+    </div>
+  );
+};
 
-export default MyEditor;
+export default TextEditor;

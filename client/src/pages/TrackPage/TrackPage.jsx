@@ -132,7 +132,7 @@ function TrackPage() {
             handleChange={handleRStatusChange}
           />
         </div>
-        <TextEditor manga={manga} setManga={setManga} />
+        <TextEditor setManga={setManga} initValue="" />
         <Rating rating={manga.rating} onRatingChange={handleRatingChange} />
         <div>
           <Button text="TRACK" clickHandler={handleSubmit}/>
