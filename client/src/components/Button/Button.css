@@ -23,3 +23,17 @@
     border-radius: 2px;
 }
 
+.track-btn {
+  background-color: var(--light-green);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-family: var(--title-font);
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+
+.track-btn:hover {
+  cursor: pointer;
+  opacity: 1;
+}
