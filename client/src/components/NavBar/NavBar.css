@@ -18,7 +18,9 @@
     color: var(--white);
 }
 
-#navbar-title {
+#nav-title-cont {
+    display: flex;
+    align-items: center;
     margin: 0;
     font-size: var(--title-font);
     font-size: 24px;
@@ -89,3 +91,11 @@
     cursor: pointer;
 }
 
+#nav_logo {
+    width: 50px;
+    height: 50px;
+}
+
+#nav-title {
+    margin-left: 10px;
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink, Link }  from "react-router-dom"
 
 import useUser from '../../hooks/useUser'
-
+import trackerManLogo from "../../images/trackerman_logo.png"
 import "./NavBar.css"
 
 function NavBar() {
@@ -27,7 +27,10 @@ function NavBar() {
 
   return (
     <div id='navbar-container'>
-      <NavLink to="/" id='navbar-title'>TRACKER SCANS</NavLink>
+      <NavLink to="/" id='nav-title-cont'>
+        <img src={trackerManLogo} alt="TrackerMan Logo" id="nav_logo"/>
+        <span id='nav-title'>TRACKER MAN</span>
+      </NavLink>
         {navLeft}
     </div>
   )
