@@ -3,6 +3,7 @@ import { NavLink, Link }  from "react-router-dom"
 
 import useUser from '../../hooks/useUser'
 import trackerManLogo from "../../images/trackerman_logo.png"
+import trackerManLightLogo from "../../images/trackerman_logo_light.png"
 import "./NavBar.css"
 
 function NavBar() {
@@ -26,14 +27,26 @@ function NavBar() {
   );
 
   return (
-    <div id='navbar-container'>
-      <NavLink to="/" id='nav-title-cont'>
-        <img src={trackerManLogo} alt="TrackerMan Logo" id="nav_logo"/>
-        <span id='nav-title'>TRACKER MAN</span>
+    <div id="navbar-container">
+      <NavLink to="/" id="nav-title-cont">
+        <div className="logo-container">
+          <img
+            src={trackerManLogo}
+            alt="TrackerMan Logo"
+            className="logo front"
+          />
+          <img
+            src={trackerManLightLogo}
+            alt="TrackerMan Light Logo"
+            className="logo back"
+          />
+        </div>
+        <span id="nav-title">TRACKER MAN</span>
       </NavLink>
-        {navLeft}
+
+      {navLeft}
     </div>
-  )
+  );
 }
 
 export default NavBar
