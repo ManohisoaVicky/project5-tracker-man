@@ -22,13 +22,15 @@ function getToken() {
 
 async function getUserFromToken() {
   let token = getToken();
-  if (JSON.parse(atob(token.split(".")[1])).userId) {
-    token = JSON.parse(atob(token.split(".")[1])).userId;
-  } else {
-    token = null;
+  if (token) {
+    if (JSON.parse(atob(token.split(".")[1])).userId) {
+      token = JSON.parse(atob(token.split(".")[1])).userId;
+      let user = await fetchUserInfo(token);
+      return user;
+    } else {
+      return;
+    }
   }
-  let user = await fetchUserInfo(token);
-  return user;
 }
 
 async function fetchUserInfo(userId) {
