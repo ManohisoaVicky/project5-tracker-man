@@ -2,6 +2,7 @@ import Manga from "../models/manga.js";
 import User from "../models/user.js";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
 
 dotenv.config();
 
@@ -12,12 +13,31 @@ async function getUserMangas(req, res, next) {
     const token = req.headers.authorization.split(" ")[1];
     const decodedToken = jwt.verify(token, SECRET);
     const userId = decodedToken.userId;
+    const { page, limit } = req.query;
 
-    const user = await User.findById(userId).populate("mangas");
-    if (!user) {
-      return res.status(400).json({ error: true, message: "User not found." });
+    const pipeline = [
+      { $match: { _id: mongoose.Types.ObjectId(userId) } },
+      {
+        $lookup: {
+          from: "mangas",
+          localField: "mangas",
+          foreignField: "_id",
+          as: "mangasData",
+        },
+      },
+      { $unwind: "$mangasData" },
+      { $skip: (page - 1) * limit },
+      { $limit: parseInt(limit) },
+      { $replaceRoot: { newRoot: "$mangasData" } },
+    ];
+
+    const userMangas = await User.aggregate(pipeline);
+    if (!userMangas) {
+      return res
+        .status(400)
+        .json({ error: true, message: "User mangas not found." });
     }
-    res.json(user.mangas);
+    res.json(userMangas);
   } catch (error) {
     next(error);
   }
