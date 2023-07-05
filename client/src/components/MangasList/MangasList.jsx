@@ -8,13 +8,13 @@ const MangaList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  const limit = 10; 
   useEffect(() => {
     const fetchMangasData = async () => {
       try {
         const data = await fetchMangas(currentPage);
         setMangas(data.mangas);
-        setTotalPages(Math.ceil(data.totalPages / limit)); 
+        setTotalPages(Math.ceil(data.totalPages)); 
+        console.log(data)
       } catch (error) {
         console.error(error);
       }
