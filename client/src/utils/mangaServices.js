@@ -18,4 +18,26 @@ async function trackManga(manga) {
   }
 }
 
-export { trackManga };
+async function fetchMangas(page) {
+  const limit = 10;
+
+  try {
+    const token = getToken();
+    const response = await fetch(`${MANGA_URL}?page=${page}&limit=${limit}`, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    if (!response.ok) {
+      throw new Error("Failed to fetch mangas");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+export { trackManga, fetchMangas };

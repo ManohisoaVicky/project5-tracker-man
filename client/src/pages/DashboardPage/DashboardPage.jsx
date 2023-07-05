@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import MangaList from '../../components/MangasList/MangasList.jsx'
 
 import "./DashboardPage.css"
 
@@ -8,6 +9,7 @@ function DashboardPage() {
     <div id='dashboardPage'>
       <div>dashboard</div>
       <Link to="/track" id='track-btn'>Track</Link>
+      <MangaList />
     </div>
   )
 }

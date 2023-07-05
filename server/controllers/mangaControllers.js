@@ -15,6 +15,10 @@ async function getUserMangas(req, res, next) {
     const userId = decodedToken.userId;
     const { page, limit } = req.query;
 
+    // Convert page and limit to integers
+    const pageNumber = parseInt(page);
+    const limitNumber = parseInt(limit);
+
     const pipeline = [
       { $match: { _id: mongoose.Types.ObjectId(userId) } },
       {
@@ -26,8 +30,8 @@ async function getUserMangas(req, res, next) {
         },
       },
       { $unwind: "$mangasData" },
-      { $skip: (page - 1) * limit },
-      { $limit: parseInt(limit) },
+      { $skip: (pageNumber - 1) * limitNumber },
+      { $limit: limitNumber },
       { $replaceRoot: { newRoot: "$mangasData" } },
     ];
 
