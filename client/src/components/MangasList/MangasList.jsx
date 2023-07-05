@@ -4,16 +4,17 @@ import { fetchMangas } from "../../utils/mangaServices.js";
 import "./MangasList.css";
 
 const MangaList = () => {
-  const [mangas, setMangas] = useState();
+  const [mangas, setMangas] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
+  const limit = 10; 
   useEffect(() => {
     const fetchMangasData = async () => {
       try {
         const data = await fetchMangas(currentPage);
-        setMangas(data);
-        setTotalPages(data.length);
+        setMangas(data.mangas);
+        setTotalPages(Math.ceil(data.totalPages / limit)); 
       } catch (error) {
         console.error(error);
       }
@@ -29,7 +30,11 @@ const MangaList = () => {
   return (
     <div id="manga_list_cont">
       {mangas &&
-        mangas.map((manga) => <div key={manga.id} className="manga_cont">{manga.name}</div>)}
+        mangas.map((manga) => (
+          <div key={manga.id} className="manga_cont">
+            {manga.name}
+          </div>
+        ))}
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}

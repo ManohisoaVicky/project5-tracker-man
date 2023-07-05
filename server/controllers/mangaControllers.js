@@ -15,10 +15,6 @@ async function getUserMangas(req, res, next) {
     const userId = decodedToken.userId;
     const { page, limit } = req.query;
 
-    // Convert page and limit to integers
-    const pageNumber = parseInt(page);
-    const limitNumber = parseInt(limit);
-
     const pipeline = [
       { $match: { _id: mongoose.Types.ObjectId(userId) } },
       {
@@ -30,18 +26,24 @@ async function getUserMangas(req, res, next) {
         },
       },
       { $unwind: "$mangasData" },
-      { $skip: (pageNumber - 1) * limitNumber },
-      { $limit: limitNumber },
+      { $skip: (page - 1) * limit },
+      { $limit: parseInt(limit) },
       { $replaceRoot: { newRoot: "$mangasData" } },
     ];
 
-    const userMangas = await User.aggregate(pipeline);
+    const [userMangas, totalCount] = await Promise.all([
+      User.aggregate(pipeline),
+      User.findById(userId).select("mangas"),
+    ]);
+
     if (!userMangas) {
       return res
         .status(400)
         .json({ error: true, message: "User mangas not found." });
     }
-    res.json(userMangas);
+
+    const totalPages = Math.ceil(totalCount.mangas.length / parseInt(limit));
+    res.json({ mangas: userMangas, totalPages });
   } catch (error) {
     next(error);
   }
