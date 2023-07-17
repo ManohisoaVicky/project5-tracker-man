@@ -16,7 +16,6 @@ const MangaList = () => {
         const data = await fetchMangas(currentPage);
         setMangas(data.mangas);
         setTotalPages(Math.ceil(data.totalPages)); 
-        console.log(data)
       } catch (error) {
         console.error(error);
       }

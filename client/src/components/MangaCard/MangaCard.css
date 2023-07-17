@@ -1,5 +1,14 @@
 .manga_cont {
     border: 3px solid yellow;
-    height: 30px;
+    height: auto;
     color: white;
+}
+
+.manga_main_info {
+    border: 2px solid green;
+}
+
+.manga_cont p {
+    margin: 0;
+    padding: 0;
 }
