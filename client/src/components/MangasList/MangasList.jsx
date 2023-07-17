@@ -3,6 +3,8 @@ import Pagination from "../Pagination/Pagination";
 import { fetchMangas } from "../../utils/mangaServices.js";
 import "./MangasList.css";
 
+import MangaCard from "../MangaCard/MangaCard";
+
 const MangaList = () => {
   const [mangas, setMangas] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -31,9 +33,7 @@ const MangaList = () => {
     <div id="manga_list_cont">
       {mangas &&
         mangas.map((manga) => (
-          <div key={manga.id} className="manga_cont">
-            {manga.name}
-          </div>
+          <MangaCard manga={manga}/>
         ))}
       <Pagination
         currentPage={currentPage}

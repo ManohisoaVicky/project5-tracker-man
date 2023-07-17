@@ -6,9 +6,3 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
-.manga_cont {
-    border: 3px solid yellow;
-    height: 30px;
-    color: white;
-}
