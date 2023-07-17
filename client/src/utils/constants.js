@@ -97,7 +97,7 @@ const READING_STATUS = [
   "Reading",
   "Completed",
   "On Hold",
-  "Plan to Read",
+  "To Read",
   "Re-reading",
   "Dropped",
 ];

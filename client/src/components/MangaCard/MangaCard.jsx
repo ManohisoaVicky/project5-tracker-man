@@ -11,15 +11,17 @@ function MangaCard({ manga }) {
     let manga_artist = capitalizeWords(manga.artist[0])
   return (
     <div key={manga.id} className="manga_cont">
-        <div className="manga_main_info">
-            <p>{manga_name}</p>
-            <p>{manga_artist || "Unspecified"}</p>
-        </div>
-        <p>{manga.type}</p>
-        <p>{manga.readingStatus}</p>
-        <RatingDisplay rating={manga.rating}/>
+      <div className="manga_main_info">
+        <p>{manga_name}</p>
+        <p>{manga_artist || "N/A"}</p>
+      </div>
+      <div className="manga_info_wrapper">
+        <p>Type: {manga.type || "N/A"}</p>
+        <p className='reading_status'>Reading Status: {manga.readingStatus || "N/A"}</p>
+      </div>
+      <RatingDisplay rating={manga.rating} />
     </div>
-  )
+  );
 }
 
 export default MangaCard

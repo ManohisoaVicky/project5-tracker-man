@@ -9,17 +9,16 @@
 }
 
 .rating_display {
-  display: inline-block;
-  font-size: 2rem;
-  margin-bottom: 20px;
+  display: flex;
+
+  padding-right: 5px;
 }
 
 .star {
   display: inline-block;
   cursor: pointer;
   color: #ddd;
-  font-size: 1.5rem; 
-  transition: transform 0.2s;
+  font-size: 1.3rem; 
 }
 
 .selected,

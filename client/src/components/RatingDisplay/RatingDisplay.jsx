@@ -5,7 +5,7 @@ import "./RatingDisplay.css";
 const Rating = ({ rating }) => {
 
   return (
-    <div className="rating">
+    <div className="rating_display">
       {[...Array(10)].map((_, index) => {
         const ratingValue = index + 1;
         let classes = "star";
