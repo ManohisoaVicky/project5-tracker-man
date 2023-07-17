@@ -1,7 +1,18 @@
+:root {
+  --title-font: 'Russo One', sans-serif;
+  --light-green: #3ed057;
+  --dark-green: #0e4429;
+  --light-grey: #5e6670;
+  --dark-grey: #2a3038;
+  --dark: #22272e;
+  --white: #FFFFFF;
+}
+
 #manga_list_cont {
-    border: 2px solid red;
     width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
+    border: 2px solid var(--light-grey);
+    padding: 10px;
 }

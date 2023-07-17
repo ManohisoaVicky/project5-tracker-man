@@ -1,8 +1,12 @@
 import { FaStar } from "react-icons/fa";
-
 import "./RatingDisplay.css";
 
 const Rating = ({ rating }) => {
+  if (!rating) {
+    return (
+        <span className="rating-icon">No Rating</span>
+    );
+  }
 
   return (
     <div className="rating_display">
@@ -22,9 +26,7 @@ const Rating = ({ rating }) => {
               value={ratingValue}
               className="hidden"
             />
-            <span
-              className={classes}
-            >
+            <span className={classes}>
               <FaStar />
             </span>
           </label>
