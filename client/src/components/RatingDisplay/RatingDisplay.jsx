@@ -12,7 +12,7 @@ const Rating = ({ rating }) => {
     <div className="rating_display">
       {[...Array(10)].map((_, index) => {
         const ratingValue = index + 1;
-        let classes = "star";
+        let classes = "display_star";
 
         if (ratingValue <= rating) {
           classes += " selected";

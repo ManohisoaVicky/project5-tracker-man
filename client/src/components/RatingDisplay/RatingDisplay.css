@@ -14,7 +14,7 @@
   padding-right: 5px;
 }
 
-.star {
+.display_star {
   display: inline-block;
   cursor: pointer;
   color: #ddd;
@@ -23,7 +23,7 @@
 
 .selected,
 .selected ~ .star {
-  color: var(--light-green);
+  color: var(--dark-green);
 }
 
 .hidden {
