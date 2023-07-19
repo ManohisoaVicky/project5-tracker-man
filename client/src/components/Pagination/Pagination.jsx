@@ -2,7 +2,18 @@ import React from "react";
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const pageRange = [];
-  for (let i = 1; i <= totalPages; i++) {
+
+  const paginationSize = 5;
+  const halfSize = Math.floor(paginationSize / 2);
+
+  let startPage = Math.max(currentPage - halfSize, 1);
+  let endPage = startPage + paginationSize - 1;
+  if (endPage > totalPages) {
+    endPage = totalPages;
+    startPage = Math.max(endPage - paginationSize + 1, 1);
+  }
+
+  for (let i = startPage; i <= endPage; i++) {
     pageRange.push(i);
   }
 
