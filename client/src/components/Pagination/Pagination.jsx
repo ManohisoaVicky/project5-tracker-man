@@ -1,9 +1,11 @@
 import React from "react";
+import "./Pagination.css"; // Import your CSS file for styling
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const pageRange = [];
 
-  const paginationSize = 5;
+  // Define the number of pagination buttons to show
+  const paginationSize = 6;
   const halfSize = Math.floor(paginationSize / 2);
 
   let startPage = Math.max(currentPage - halfSize, 1);
@@ -23,7 +25,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         <button
           key={page}
           onClick={() => onPageChange(page)}
-          disabled={currentPage === page}
+          className={currentPage === page ? "active_pagination_btn" : "pagination_btn"}
         >
           {page}
         </button>
