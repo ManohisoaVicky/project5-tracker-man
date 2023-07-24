@@ -32,7 +32,7 @@ const MangaList = () => {
     <div id="manga_list_cont">
       {mangas &&
         mangas.map((manga) => (
-          <MangaCard manga={manga}/>
+          <MangaCard manga={manga} key={manga._id}/>
         ))}
       <Pagination
         currentPage={currentPage}

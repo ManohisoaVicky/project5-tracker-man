@@ -9,6 +9,7 @@ import LoginPage from "../src/pages/LoginPage/LoginPage.jsx";
 import SignUpPage from "../src/pages/SignUpPage/SignUpPage.jsx";
 import NavBar from "../src/components/NavBar/NavBar.jsx";
 import TrackPage from "./pages/TrackPage/TrackPage";
+import MangaDetails from "../src/pages/MangaDetails/MangaDetails.jsx";
 
 function App() {
   const { refreshAuth } = useUser();
@@ -29,6 +30,7 @@ function App() {
         <Route exact path="/login" element={<LoginPage />} />
         <Route exact path="/signup" element={<SignUpPage />} />
         <Route exact path="/track" element={<TrackPage />} />
+        <Route exact path="/manga/detail/:mangaID" element={<MangaDetails />} />
       </Routes>
     </div>
   );
