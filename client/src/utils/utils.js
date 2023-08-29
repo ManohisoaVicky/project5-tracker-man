@@ -12,4 +12,18 @@ function capitalizeWords(phrase) {
   return capitalizedPhrase;
 }
 
-export { capitalizeWords };
+function removeSpace(phrase) {
+  return phrase.replace(/\s+/g, "");
+}
+
+function googleSearchAuthor(artist) {
+  if (typeof artist !== "string" || artist.trim() === "") {
+    return;
+  }
+
+  const query = artist.split(" ").join("+");
+  const link = `https://www.google.com/search?q=${query}`;
+  return link;
+}
+
+export { capitalizeWords, removeSpace, googleSearchAuthor };

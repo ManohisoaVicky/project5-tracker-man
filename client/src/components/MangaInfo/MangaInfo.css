@@ -1,0 +1,9 @@
+#detailed_manga_type {
+    font-size: 16px;
+}
+
+#detailed_manga_info a {
+    color: white;
+    text-decoration: none;
+    font-style: italic;
+}

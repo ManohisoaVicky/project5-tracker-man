@@ -31,7 +31,6 @@ async function fetchMangas(page) {
     if (!response.ok) {
       throw new Error("Failed to fetch mangas");
     }
-
     const data = await response.json();
     return data;
   } catch (error) {
@@ -40,4 +39,22 @@ async function fetchMangas(page) {
   }
 }
 
-export { trackManga, fetchMangas };
+async function getSingleManga(mangaID) {
+  try {
+    const token = getToken();
+    let response = await fetch(`${MANGA_URL}${mangaID}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    });
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+export { trackManga, fetchMangas, getSingleManga };
