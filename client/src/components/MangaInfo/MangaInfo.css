@@ -1,3 +1,18 @@
+:root {
+  --title-font: 'Russo One', sans-serif;
+  --light-green: #3ed057;
+  --dark-green: #0e4429;
+  --light-grey: #5e6670;
+  --dark-grey: #2a3038;
+  --dark: #22272e;
+  --white: #FFFFFF;
+}
+
+#detailed_manga_info {
+    height: 100%;
+    width: 60%;
+}
+
 #detailed_manga_type {
     font-size: 16px;
 }
@@ -6,4 +21,21 @@
     color: white;
     text-decoration: none;
     font-style: italic;
+}
+
+#manga_status_div {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+#manga_info_div p {
+    font-weight: bold;
+}
+
+#manga_info_div span {
+    background-color: var(--light-grey);
+    padding: 3px 5px;
+    font-weight: normal;
+    border-radius: 3px;
 }

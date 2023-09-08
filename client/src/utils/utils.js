@@ -26,4 +26,8 @@ function googleSearchAuthor(artist) {
   return link;
 }
 
-export { capitalizeWords, removeSpace, googleSearchAuthor };
+function isNotEmpty(string) {
+  return string.trim() !== "";
+}
+
+export { capitalizeWords, removeSpace, googleSearchAuthor, isNotEmpty };
