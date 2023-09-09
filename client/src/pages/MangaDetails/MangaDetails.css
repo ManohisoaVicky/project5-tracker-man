@@ -1,9 +1,20 @@
+:root {
+  --title-font: 'Russo One', sans-serif;
+  --light-green: #3ed057;
+  --dark-green: #0e4429;
+  --light-grey: #5e6670;
+  --dark-grey: #2a3038;
+  --dark: #22272e;
+  --white: #FFFFFF;
+}
+
 .manga_details_cont {
     color: white;
-    border: 2px solid red;
+    border: 5px solid var(--light-grey);
     height: 85%;
-    padding: 10px;
+    padding: 20px;
     margin-top: 20px;
+    border-radius: 5px;
 }
 
 .manga_details_cont h1 {

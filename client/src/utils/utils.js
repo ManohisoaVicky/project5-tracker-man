@@ -30,4 +30,14 @@ function isNotEmpty(string) {
   return string.trim() !== "";
 }
 
-export { capitalizeWords, removeSpace, googleSearchAuthor, isNotEmpty };
+function isNotEmptyArray(arr) {
+  return Array.isArray(arr) && arr.length > 0;
+}
+
+export {
+  capitalizeWords,
+  removeSpace,
+  googleSearchAuthor,
+  isNotEmpty,
+  isNotEmptyArray,
+};

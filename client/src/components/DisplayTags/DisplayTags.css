@@ -1,0 +1,34 @@
+:root {
+  --title-font: 'Russo One', sans-serif;
+  --light-green: #3ed057;
+  --dark-green: #0e4429;
+  --light-grey: #5e6670;
+  --dark-grey: #2a3038;
+  --dark: #22272e;
+  --white: #FFFFFF;
+}
+
+#display_tags_cont {
+    width: 60%;
+    display: flex;
+}
+
+#display_tags_cont > ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+#display_tags_cont > p {
+    font-weight: bold;
+}
+
+.displayed_tags {
+    list-style: none;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    background-color: var(--dark-green);
+    padding: 3px 5px;
+    border-radius: 3px;
+}

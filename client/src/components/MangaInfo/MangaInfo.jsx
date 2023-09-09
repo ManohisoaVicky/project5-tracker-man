@@ -2,6 +2,7 @@ import React from 'react'
 import { removeSpace, googleSearchAuthor, isNotEmpty } from "../../utils/utils.js"
 
 import RatingDisplay from '../RatingDisplay/RatingDisplay.jsx'
+import DisplayTags from '../DisplayTags/DisplayTags.jsx'
 
 import "./MangaInfo.css"
 
@@ -37,6 +38,7 @@ function MangaInfo({ manga }) {
           <p>Reading Status: <span>{(isNotEmpty(manga.readingStatus) ? manga.readingStatus : "N/A")}</span></p>
         </div>
       </div>
+      <DisplayTags tags={manga.tags}/>
     </div>
   );
 }
