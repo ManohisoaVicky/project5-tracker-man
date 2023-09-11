@@ -3,6 +3,7 @@ import { removeSpace, googleSearchAuthor, isNotEmpty } from "../../utils/utils.j
 
 import RatingDisplay from '../RatingDisplay/RatingDisplay.jsx'
 import DisplayTags from '../DisplayTags/DisplayTags.jsx'
+import HTMLReactParser from 'html-react-parser'
 
 import "./MangaInfo.css"
 
@@ -39,6 +40,10 @@ function MangaInfo({ manga }) {
         </div>
       </div>
       <DisplayTags tags={manga.tags}/>
+      <p id='detailed_synopsis_p'>Synopsis:</p>
+      <div id='detailed_synopsis'>
+        {manga.summary ? HTMLReactParser(manga.summary) : <p>Synopsis not provided.</p>}
+      </div>
     </div>
   );
 }
