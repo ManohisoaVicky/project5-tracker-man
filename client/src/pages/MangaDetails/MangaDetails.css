@@ -11,7 +11,7 @@
 .manga_details_cont {
     color: white;
     border: 5px solid var(--light-grey);
-    height: 85%;
+    height: auto;
     padding: 20px;
     margin-top: 20px;
     border-radius: 5px;
