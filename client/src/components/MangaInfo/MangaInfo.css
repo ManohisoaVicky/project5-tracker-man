@@ -26,7 +26,7 @@
 #manga_status_div {
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width: 60%;
 }
 
 #manga_info_div p {
