@@ -34,10 +34,16 @@ function isNotEmptyArray(arr) {
   return Array.isArray(arr) && arr.length > 0;
 }
 
+function isLastElement(arr, element) {
+  const lastIndex = arr.length - 1;
+  return arr[lastIndex] === element;
+}
+
 export {
   capitalizeWords,
   removeSpace,
   googleSearchAuthor,
   isNotEmpty,
   isNotEmptyArray,
+  isLastElement,
 };

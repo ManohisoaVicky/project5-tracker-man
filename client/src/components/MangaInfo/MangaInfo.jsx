@@ -1,5 +1,5 @@
 import React from 'react'
-import { removeSpace, googleSearchAuthor, isNotEmpty } from "../../utils/utils.js"
+import { removeSpace, googleSearchAuthor, isNotEmpty, isLastElement } from "../../utils/utils.js"
 
 import RatingDisplay from '../RatingDisplay/RatingDisplay.jsx'
 import DisplayTags from '../DisplayTags/DisplayTags.jsx'
@@ -16,8 +16,13 @@ function MangaInfo({ manga }) {
   return (
     <div id="detailed_manga_info">
       <h1>
-        {manga.name} <span id="detailed_manga_type">({type})</span>
+        {manga.name[0]} <span id="detailed_manga_type">({type})</span>
       </h1>
+      {manga.name.length > 1 ? (
+        manga.name.map((name) => {
+          return <span> {name} {!isLastElement(manga.name, name) ? "·" : <></>}</span>
+        })
+      ): <></>}
       {author_link ? (
         <p className="manga_info_artist">
           <a href={author_link} target="_blank" rel="noreferrer">
