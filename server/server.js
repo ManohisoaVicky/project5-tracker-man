@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import usersRoutes from "./routes/usersRoutes.js";
 import mangasRoutes from "./routes/mangasRoutes.js";
+import reviewsRoutes from "./routes/reviewsRoutes.js";
 
 import { connectToDb } from "./config/db.js";
 
@@ -35,6 +36,7 @@ app.use(express.static(__dirname));
 
 app.use("/api/users", usersRoutes);
 app.use("/api/mangas", mangasRoutes);
+app.use("/api/reviews", reviewsRoutes);
 
 const port = process.env.PORT || 3001;
 
