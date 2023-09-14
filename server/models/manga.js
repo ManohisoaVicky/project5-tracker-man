@@ -10,7 +10,7 @@ const mangaSchema = new mongoose.Schema(
     comicStatus: { type: String },
     readingStatus: { type: String },
     rating: { type: Number },
-    review: { type: String },
+    review: [{ type: mongoose.Schema.ObjectId, ref: "Review" }],
     tags: [String],
   },
   {
