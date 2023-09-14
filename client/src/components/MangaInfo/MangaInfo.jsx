@@ -21,7 +21,7 @@ function MangaInfo({ manga }) {
       {author_link ? (
         <p className="manga_info_artist">
           <a href={author_link} target="_blank" rel="noreferrer">
-            {manga.artist}
+            {manga.artist[0]}
           </a>
         </p>
       ) : (

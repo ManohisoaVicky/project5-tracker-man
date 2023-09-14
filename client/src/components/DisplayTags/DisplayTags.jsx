@@ -11,7 +11,7 @@ function DisplayTags({tags}) {
         { isNotEmptyArray(tags) ? (
         <ul>
             {tags.map((tag) => {
-                return <li className='displayed_tags'>{tag}</li>
+                return <li className='displayed_tags' key={tag}>{tag}</li>
             })}
         </ul>
         ): <p>No tags added</p>}
