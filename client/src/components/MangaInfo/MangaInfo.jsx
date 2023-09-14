@@ -11,7 +11,19 @@ function MangaInfo({ manga }) {
 
     const type = removeSpace(manga.type)
 
-    const author_link = googleSearchAuthor(manga.artist[0])
+      const author_link = manga.artist.map((artist) => {
+        if (isNotEmpty(artist)) {
+          const authorLink = googleSearchAuthor(artist);
+          return (
+            <span key={artist}>
+              <a href={authorLink} target="_blank" rel="noreferrer">
+                {artist} {!isLastElement(manga.artist, artist) ? "· " : <></>}
+              </a>
+            </span>
+          );
+        }
+        return null; 
+      });
 
   return (
     <div id="detailed_manga_info">
@@ -20,14 +32,19 @@ function MangaInfo({ manga }) {
       </h1>
       {manga.name.length > 1 ? (
         manga.name.map((name) => {
-          return <span> {name} {!isLastElement(manga.name, name) ? "·" : <></>}</span>
+          return (
+            <span>
+              {" "}
+              {name} {!isLastElement(manga.name, name) ? "·" : <></>}
+            </span>
+          );
         })
-      ): <></>}
+      ) : (
+        <></>
+      )}
       {author_link ? (
         <p className="manga_info_artist">
-          <a href={author_link} target="_blank" rel="noreferrer">
-            {manga.artist[0]}
-          </a>
+          {author_link.length > 0 ? author_link : "N/A"}
         </p>
       ) : (
         <p className="manga_info_artist">N/A</p>
@@ -38,16 +55,33 @@ function MangaInfo({ manga }) {
         <p>No Rating</p>
       )}
       <div id="manga_info_div">
-        <p>Chapters Read: <span>{manga.chapRead > 0 ? manga.chapRead : "N/A"}</span></p>
+        <p>
+          Chapters Read:{" "}
+          <span>{manga.chapRead > 0 ? manga.chapRead : "N/A"}</span>
+        </p>
         <div id="manga_status_div">
-          <p>Comic Status: <span>{(isNotEmpty(manga.comicStatus) ? manga.comicStatus : "N/A")}</span></p>
-          <p>Reading Status: <span>{(isNotEmpty(manga.readingStatus) ? manga.readingStatus : "N/A")}</span></p>
+          <p>
+            Comic Status:{" "}
+            <span>
+              {isNotEmpty(manga.comicStatus) ? manga.comicStatus : "N/A"}
+            </span>
+          </p>
+          <p>
+            Reading Status:{" "}
+            <span>
+              {isNotEmpty(manga.readingStatus) ? manga.readingStatus : "N/A"}
+            </span>
+          </p>
         </div>
       </div>
-      <DisplayTags tags={manga.tags}/>
-      <p id='detailed_synopsis_p'>Synopsis:</p>
-      <div id='detailed_synopsis'>
-        {manga.summary ? HTMLReactParser(manga.summary) : <p>Synopsis not provided.</p>}
+      <DisplayTags tags={manga.tags} />
+      <p id="detailed_synopsis_p">Synopsis:</p>
+      <div id="detailed_synopsis">
+        {manga.summary ? (
+          HTMLReactParser(manga.summary)
+        ) : (
+          <p>Synopsis not provided.</p>
+        )}
       </div>
     </div>
   );
