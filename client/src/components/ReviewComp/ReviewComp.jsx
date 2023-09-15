@@ -10,26 +10,22 @@ function ReviewComp() {
 
     let mangaID = useParams().mangaID
 
+    const [review, setReview] = useState({
+        content: ""
+    })
+
     const handleSubmit = async (e) => {
-        e.preventDefault();
         try {
-            addReview(review, mangaID).then((res) => {
-            // navigate("/");
-            console.log("review successfully added")
-        });
-        console.log(review);
+            await addReview(review, mangaID); 
         } catch (error) {
             console.log(error);
         }
     };
 
-    const [review, setReview] = useState({
-        content: ""
-    })
   return (
     <div id='review_comp_cont'>
         <form id='add_review_form'>
-            <TextEditor setReview={setReview}/>
+            <TextEditor setReview={setReview} initValue={review.content}/>
             <Button text="ADD REVIEW" clickHandler={handleSubmit}/>
         </form>
     </div>
