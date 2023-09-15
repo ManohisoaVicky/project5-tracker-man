@@ -39,6 +39,15 @@ function isLastElement(arr, element) {
   return arr[lastIndex] === element;
 }
 
+function formatDateTime(dateTimeString) {
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  const formattedDate = new Date(dateTimeString).toLocaleDateString(
+    undefined,
+    options
+  );
+  return formattedDate;
+}
+
 export {
   capitalizeWords,
   removeSpace,
@@ -46,4 +55,5 @@ export {
   isNotEmpty,
   isNotEmptyArray,
   isLastElement,
+  formatDateTime,
 };

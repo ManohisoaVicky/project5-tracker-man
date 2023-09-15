@@ -4,6 +4,7 @@ import { addReview } from '../../utils/reviewServices'
 
 import TextEditor from '../TextEditor/TextEditor'
 import Button from '../Button/Button'
+import ReviewList from '../ReviewList/ReviewList'
 import "./ReviewComp.css"
 
 function ReviewComp() {
@@ -28,6 +29,7 @@ function ReviewComp() {
             <TextEditor setReview={setReview} initValue={review.content}/>
             <Button text="ADD REVIEW" clickHandler={handleSubmit}/>
         </form>
+        <ReviewList mangaID={mangaID}/>
     </div>
   )
 }

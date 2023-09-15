@@ -18,4 +18,28 @@ async function addReview(review, mangaId) {
   }
 }
 
-export { addReview };
+async function fetchReviews(page, mangaId) {
+  const limit = 3;
+
+  try {
+    const token = getToken();
+    const response = await fetch(
+      `${REVIEW_URL}${mangaId}?page=${page}&limit=${limit}`,
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch reviews");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+export { addReview, fetchReviews };
