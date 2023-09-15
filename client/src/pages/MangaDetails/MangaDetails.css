@@ -9,6 +9,7 @@
 }
 
 .manga_details_cont {
+    display: flex;
     color: white;
     border: 5px solid var(--light-grey);
     height: auto;

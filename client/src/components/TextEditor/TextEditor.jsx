@@ -107,20 +107,24 @@ const MenuBar = ({ editor }) => {
   );
 };
 
-function TextEditor({ setManga, initValue }){
+function TextEditor({ setManga, initValue, extensive, setReview }){
   const editor = useEditor({
     extensions: [StarterKit, Underline],
     content: initValue,
     editable: true,
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
-       setManga((prev) => ({ ...prev, summary: html }));
+      if (extensive) {
+        setManga((prev) => ({ ...prev, summary: html }));
+      } else {
+        setReview((prev) => ({...prev, content: html}))
+      }
     },
   });
 
   return (
     <div className="text-editor">
-      <MenuBar editor={editor} />
+      {extensive && <MenuBar editor={editor} />}
       <EditorContent editor={editor} spellCheck="false" />
     </div>
   );

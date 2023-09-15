@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getSingleManga } from '../../utils/mangaServices'
 import MangaInfo from '../../components/MangaInfo/MangaInfo'
+import ReviewComp from '../../components/ReviewComp/ReviewComp'
 
 import "./MangaDetails.css"
 
@@ -25,17 +26,17 @@ function MangaDetails() {
    }, [mangaID]);
 
   return (
-    <div className='manga_details_cont'>
-      {
-        manga ? (
-          <MangaInfo manga={manga}/>
-        ) : (
-          <p>Loading ...</p>
-        )
-      }
-      
+    <div className="manga_details_cont">
+      {manga ? (
+        <>
+          <MangaInfo manga={manga} />
+          <ReviewComp manga={manga} />
+        </>
+      ) : (
+        <p>Loading ...</p>
+      )}
     </div>
-  )
+  );
 }
 
 export default MangaDetails
