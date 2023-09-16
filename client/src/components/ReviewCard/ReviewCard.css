@@ -10,4 +10,12 @@
 
 .review-card-cont {
     border-bottom: 1px solid var(--light-grey);
+    margin-bottom: 10px;
+}
+
+.review-card-info-cont {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+  margin-bottom: 10px;
 }

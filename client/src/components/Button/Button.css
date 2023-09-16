@@ -61,3 +61,18 @@
   cursor: not-allowed;
 }
 
+#delete-review-btn {
+  background-color: red;
+  border: none;
+  color: white;
+  font-size: 14px;
+  opacity: 0.5;
+  transition: all 0.5s;
+  border-radius: 3px;
+}
+
+#delete-review-btn:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+

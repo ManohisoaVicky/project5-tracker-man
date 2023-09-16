@@ -24,6 +24,10 @@ function Button(props) {
         {props.text}
       </button>
     );
+  } else if (props.action === "DELETE REVIEW") {
+    button = (
+      <button id="delete-review-btn">{props.text}</button>
+    )
   }
 
   return <>{button}</>;
