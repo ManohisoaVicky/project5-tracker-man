@@ -24,15 +24,24 @@ function ReviewList({mangaID}) {
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentPage, mangaID]);
 
+    const handlePageChange = (page) => {
+      setCurrentPage(page);
+    };
+
   return (
     <div>
-        {reviews ? (
-            reviews.reviews.map((review) => (
-                <ReviewCard review={review} />
-            ))
-        ): <p>no reviews</p>}
+      {reviews ? (
+        reviews.reviews.map((review) => <ReviewCard review={review} />)
+      ) : (
+        <p>no reviews</p>
+      )}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
     </div>
-  )
+  );
 }
 
 export default ReviewList

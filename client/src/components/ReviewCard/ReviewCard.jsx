@@ -7,9 +7,9 @@ import "./ReviewCard.css"
 function ReviewCard({review}) {
     console.log(review)
   return (
-    <div>
-        <p>{formatDateTime(review.createdAt)}</p>
+    <div className='review-card-cont'>
         {HTMLReactParser(review.content)}
+        <p>{formatDateTime(review.createdAt)}</p>
     </div>
   )
 }
