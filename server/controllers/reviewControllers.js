@@ -67,45 +67,28 @@ async function getAllReviews(req, res, next) {
   }
 }
 
-async function getUserMangas(req, res, next) {
+async function deleteReview(req, res, next) {
   try {
-    const token = req.headers.authorization.split(" ")[1];
-    const decodedToken = jwt.verify(token, SECRET);
-    const userId = decodedToken.userId;
-    const { page, limit } = req.query;
+    const reviewId = req.params.reviewId;
+    const mangaId = req.params.id;
 
-    const pipeline = [
-      { $match: { _id: mongoose.Types.ObjectId(userId) } },
-      {
-        $lookup: {
-          from: "mangas",
-          localField: "mangas",
-          foreignField: "_id",
-          as: "mangasData",
-        },
-      },
-      { $unwind: "$mangasData" },
-      { $skip: (page - 1) * limit },
-      { $limit: parseInt(limit) },
-      { $replaceRoot: { newRoot: "$mangasData" } },
-    ];
+    const manga = await Manga.findById(mangaId);
 
-    const [userMangas, totalCount] = await Promise.all([
-      User.aggregate(pipeline),
-      User.findById(userId).select("mangas"),
-    ]);
-
-    if (!userMangas) {
-      return res
-        .status(400)
-        .json({ error: true, message: "User mangas not found." });
+    if (!manga) {
+      return res.status(404).json({ message: "Manga not found" });
     }
 
-    const totalPages = Math.ceil(totalCount.mangas.length / parseInt(limit));
-    res.json({ mangas: userMangas, totalPages });
+    manga.review.pull(reviewId);
+
+    await manga.save();
+
+    const deletedReview = await Review.findByIdAndDelete(reviewId);
+
+    return res.status(200).json({ message: "Review deleted successfully" });
   } catch (error) {
-    next(error);
+    console.error(error);
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 }
 
-export { createReview, getAllReviews };
+export { createReview, getAllReviews, deleteReview };
