@@ -27,7 +27,7 @@ function ReviewComp() {
     <div id='review_comp_cont'>
         <form id='add_review_form'>
             <TextEditor setReview={setReview} initValue={review.content}/>
-            <Button text="ADD REVIEW" clickHandler={handleSubmit}/>
+            <Button text="ADD REVIEW" clickHandler={handleSubmit} review={review.content}/>
         </form>
         <ReviewList mangaID={mangaID}/>
     </div>
