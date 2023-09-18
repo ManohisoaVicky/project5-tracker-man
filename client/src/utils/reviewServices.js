@@ -42,4 +42,20 @@ async function fetchReviews(page, mangaId) {
   }
 }
 
-export { addReview, fetchReviews };
+async function deleteReview(id, reviewId) {
+  try {
+    const token = getToken();
+    let res = await fetch(`${REVIEW_URL}${id}/${reviewId}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    });
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { addReview, fetchReviews, deleteReview };

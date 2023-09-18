@@ -26,7 +26,7 @@ function Button(props) {
     );
   } else if (props.action === "DELETE REVIEW") {
     button = (
-      <button id="delete-review-btn">{props.text}</button>
+      <button id="delete-review-btn" onClick={props.clickHandler}>{props.text}</button>
     )
   }
 

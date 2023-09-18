@@ -11,6 +11,7 @@
 .review-card-cont {
     border-bottom: 1px solid var(--light-grey);
     margin-bottom: 10px;
+    padding: 0px 10px;
 }
 
 .review-card-info-cont {
@@ -18,4 +19,8 @@
   justify-content: space-between;
   padding: 0px 10px;
   margin-bottom: 10px;
+}
+
+.review-posted-date {
+  font-style: italic;
 }

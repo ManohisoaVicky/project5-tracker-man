@@ -31,7 +31,7 @@ function ReviewList({mangaID}) {
   return (
     <div>
       {reviews ? (
-        reviews.reviews.map((review) => <ReviewCard review={review} />)
+        reviews.reviews.map((review) => <ReviewCard review={review} mangaID={mangaID} key={review._id}/>)
       ) : (
         <p>no reviews</p>
       )}
