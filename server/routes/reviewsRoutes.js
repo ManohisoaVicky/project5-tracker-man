@@ -16,10 +16,4 @@ router
 
 router.route("/:id/:reviewId").delete(checkAuth, checkPermission, deleteReview);
 
-// router
-//   .route("/:id")
-//   .get(checkAuth, checkPermission, getManga)
-//   .patch(checkAuth, checkPermission, updateManga)
-//   .delete(checkAuth, checkPermission, deleteManga);
-
 export default router;

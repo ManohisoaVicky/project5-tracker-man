@@ -24,3 +24,22 @@
 .review-posted-date {
   font-style: italic;
 }
+
+.review-content {
+  display: inline;
+}
+
+.show-more-button {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  text-decoration: underline;
+}
+
+.show-span:hover {
+  cursor: pointer;
+}
+
+.show-icon {
+  font-size: 12px;
+}
