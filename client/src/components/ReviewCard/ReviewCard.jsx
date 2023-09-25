@@ -7,11 +7,22 @@ import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 
 import "./ReviewCard.css";
 
-function ReviewCard({ review, mangaID }) {
+function ReviewCard({ review, mangaID, onDelete }) {
   const [showMore, setShowMore] = useState(false);
 
   const toggleShowMore = () => {
     setShowMore(!showMore);
+  };
+
+  const handleDelete = async () => {
+    try {
+      // Call the deleteReview function and handle the response
+      await deleteReview(mangaID, review._id);
+      // After successful deletion, trigger the onDelete callback
+      onDelete(review._id);
+    } catch (error) {
+      console.error("Error deleting review:", error);
+    }
   };
 
   const reviewContent = showMore
@@ -49,7 +60,7 @@ function ReviewCard({ review, mangaID }) {
         <Button
           action="DELETE REVIEW"
           text="Delete"
-          clickHandler={() => deleteReview(mangaID, review._id)}
+          clickHandler={handleDelete}
         />
       </div>
     </div>
