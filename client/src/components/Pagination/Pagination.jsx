@@ -1,10 +1,9 @@
 import React from "react";
-import "./Pagination.css"; // Import your CSS file for styling
+import "./Pagination.css"; 
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const pageRange = [];
 
-  // Define the number of pagination buttons to show
   const paginationSize = 6;
   const halfSize = Math.floor(paginationSize / 2);
 

@@ -28,7 +28,7 @@ function MangaInfo({ manga }) {
   return (
     <div id="detailed_manga_info">
       <h1>
-        {manga.name[0]} <span id="detailed_manga_type">({type})</span>
+        {manga.name[0]} <span id="detailed_manga_type">({type || "N/A"})</span>
       </h1>
       {manga.name.length > 1 ? (
         manga.name.map((name) => {
