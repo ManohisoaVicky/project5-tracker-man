@@ -26,7 +26,7 @@
     flex-direction: column;
     justify-content: center;
 
-    width: 60%;
+    width: 50%;
 }
 
 .manga_info_cont {
@@ -57,4 +57,13 @@
     background-color: var(--dark);
     padding: 4px 7px;
     border-radius: 3px;
+}
+
+.manga-dlt-btn {
+    opacity: 0.5;
+    transition: all 1s;
+}
+
+.manga-dlt-btn:hover {
+    color: red;
 }

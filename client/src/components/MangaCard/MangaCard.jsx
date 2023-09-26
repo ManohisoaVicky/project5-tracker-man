@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import RatingDisplay from "../RatingDisplay/RatingDisplay.jsx"
 import { capitalizeWords } from "../../utils/utils.js"
+import { FaTrash } from "react-icons/fa";
 
 import "./MangaCard.css"
 
@@ -29,6 +30,7 @@ function MangaCard({ manga }) {
           </div>
         </div>
         <RatingDisplay rating={manga.rating} />
+        <FaTrash size={20} className='manga-dlt-btn'/>
       </div>
     </Link>
   );
