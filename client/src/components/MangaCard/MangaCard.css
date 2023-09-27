@@ -19,6 +19,7 @@
     background-color: var(--dark-grey);
     border: 1px solid var(--light-grey);
     border-radius: 5px;
+    width: 100%;
 }
 
 .manga_main_info {
@@ -59,11 +60,40 @@
     border-radius: 3px;
 }
 
-.manga-dlt-btn {
+.manga-dlt-btn, 
+.manga-edit-btn {
     opacity: 0.5;
     transition: all 1s;
 }
 
 .manga-dlt-btn:hover {
     color: red;
+    cursor: pointer;
+}
+
+.manga-edit-btn:hover {
+    cursor: pointer;
+    color: #3ed057;
+}
+
+.manga-card-cont {
+    display: flex;
+    width: 100%;
+}
+
+.manga-card-cont a {
+    width: 93%;
+}
+
+.manga-card-btn-cont {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: var(--dark-grey);
+    border: 1px solid var(--light-grey);
+    border-radius: 5px;
+    width: 6%;
 }
