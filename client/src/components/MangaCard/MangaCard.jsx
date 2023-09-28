@@ -49,7 +49,9 @@ const handleDeleteClick = async () => {
         </div>
       </Link>
       <div className="manga-card-btn-cont">
-        <FaEdit size={20} className="manga-edit-btn" />
+        <Link to={`/manga/update/${manga._id}`} className="update-link">
+          <FaEdit size={20} className="manga-edit-btn" />
+        </Link>
         <FaTrash
           size={20}
           className="manga-dlt-btn"
