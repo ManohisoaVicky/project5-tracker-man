@@ -43,7 +43,8 @@
   transition: all 0.5s;
 }
 
-#review-btn:hover {
+#review-btn:hover, 
+.track-btn:hover {
   cursor: pointer;
   opacity: 1;
 }
