@@ -80,15 +80,16 @@ function UpdatePage() {
       setManga((prevManga) => ({ ...prevManga, rating: newRating }));
     };
 
-    const handleSubmit = async () => {
-  try {
-    await updateManga(manga, mangaID); 
-    navigate(`/manga/detail/${mangaID}`); 
-    console.log(manga);
-  } catch (error) {
-    console.log(error);
-  }
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      await updateManga(manga, mangaID); 
+      navigate(`/manga/detail/${mangaID}`); 
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
 
   return (
