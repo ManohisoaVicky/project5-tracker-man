@@ -73,4 +73,22 @@ async function deleteManga(id) {
   }
 }
 
-export { trackManga, fetchMangas, getSingleManga, deleteManga };
+async function updateManga(manga, mangaId) {
+  try {
+    const token = getToken();
+
+    let res = await fetch(`${MANGA_URL}${mangaId}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+      body: JSON.stringify(manga),
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { trackManga, fetchMangas, getSingleManga, deleteManga, updateManga };

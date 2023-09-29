@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+
 
 import { getSingleManga } from '../../utils/mangaServices'
 import DynamicInput from '../../components/Inputs/DynamicInput/DynamicInput'
@@ -12,6 +13,7 @@ import { MANGA_TYPE } from '../../utils/constants'
 import { COMIC_STATUS } from '../../utils/constants'
 import { READING_STATUS } from '../../utils/constants'
 import Button from '../../components/Button/Button'
+import { updateManga } from '../../utils/mangaServices'
 
 import "./UpdatePage.css"
 
@@ -19,6 +21,8 @@ function UpdatePage() {
   const [manga, setManga] = useState()
 
   let mangaID = useParams().mangaID
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function fetchManga() {
@@ -74,6 +78,16 @@ function UpdatePage() {
 
     const handleRatingChange = (newRating) => {
       setManga((prevManga) => ({ ...prevManga, rating: newRating }));
+    };
+
+    const handleSubmit = async () => {
+  try {
+    await updateManga(manga, mangaID); 
+    navigate(`/manga/detail/${mangaID}`); 
+    console.log(manga);
+  } catch (error) {
+    console.log(error);
+  }
     };
 
 
@@ -134,7 +148,7 @@ function UpdatePage() {
             />
             <Rating rating={manga.rating} onRatingChange={handleRatingChange} />
             <div>
-              <Button text="UPDATE" />
+              <Button text="UPDATE" clickHandler={handleSubmit}/>
             </div>
           </form>
         </>
