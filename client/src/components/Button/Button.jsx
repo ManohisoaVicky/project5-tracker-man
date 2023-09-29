@@ -6,7 +6,7 @@ function Button(props) {
 
   if (props.text === "LOGIN" || props.text === "SIGN UP") {
     button = <button className="login-btn">{props.text}</button>;
-  } else if (props.text === "TRACK") {
+  } else if (props.text === "TRACK" || props.text === "UPDATE") {
     button = (
       <button className="track-btn" onClick={props.clickHandler}>
         {props.text}
