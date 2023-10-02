@@ -13,7 +13,7 @@ async function getUserMangas(req, res, next) {
     const token = req.headers.authorization.split(" ")[1];
     const decodedToken = jwt.verify(token, SECRET);
     const userId = decodedToken.userId;
-    const { page, limit } = req.query;
+    const { page, limit, search, filter, sort } = req.query;
 
     const pipeline = [
       { $match: { _id: mongoose.Types.ObjectId(userId) } },
@@ -26,10 +26,44 @@ async function getUserMangas(req, res, next) {
         },
       },
       { $unwind: "$mangasData" },
+    ];
+
+    if (search) {
+      pipeline.push({
+        $match: {
+          $or: [
+            { "mangasData.name": { $regex: search, $options: "i" } },
+            { "mangasData.artist": { $regex: search, $options: "i" } },
+          ],
+        },
+      });
+    }
+
+    if (filter) {
+      const filters = filter.split(",").map((filterItem) => {
+        const [key, value] = filterItem.split(":");
+        return { [`mangasData.${key}`]: value.trim() };
+      });
+      console.log("Filter Criteria:", filter);
+      console.log("Parsed Filters:", filters);
+
+      console.log("Aggregation Pipeline:", JSON.stringify(pipeline, null, 2));
+
+      pipeline.push({ $match: { $and: filters } });
+    }
+
+    if (sort) {
+      const [field, order] = sort.split(":");
+      const sortField =
+        field === "name" ? "mangasData.name.0" : `mangasData.${field}`;
+      pipeline.push({ $sort: { [sortField]: order === "asc" ? 1 : -1 } });
+    }
+
+    pipeline.push(
       { $skip: (page - 1) * limit },
       { $limit: parseInt(limit) },
-      { $replaceRoot: { newRoot: "$mangasData" } },
-    ];
+      { $replaceRoot: { newRoot: "$mangasData" } }
+    );
 
     const [userMangas, totalCount] = await Promise.all([
       User.aggregate(pipeline),

@@ -84,13 +84,13 @@ const MANGA_TAGS = [
 ];
 
 const MANGA_TYPE = [
-  " Manga",
-  " Manwha",
-  " Manhua",
-  " Webtoon",
-  " Comic",
-  " Western",
-  " Indie",
+  "Manga",
+  "Manwha",
+  "Manhua",
+  "Webtoon",
+  "Comic",
+  "Western",
+  "Indie",
 ];
 
 const COMIC_STATUS = ["Ongoing", "Completed", "Hiatus", "Dropped", "Unknown"];
