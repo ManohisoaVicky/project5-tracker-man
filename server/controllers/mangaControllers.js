@@ -76,7 +76,14 @@ async function getUserMangas(req, res, next) {
         .json({ error: true, message: "User mangas not found." });
     }
 
-    const totalPages = Math.ceil(totalCount.mangas.length / parseInt(limit));
+    let totalPages;
+
+    if (search || filter || sort) {
+      totalPages = Math.ceil(userMangas.length / parseInt(limit));
+    } else {
+      totalPages = Math.ceil(totalCount.mangas.length / parseInt(limit));
+    }
+
     res.json({ mangas: userMangas, totalPages });
   } catch (error) {
     next(error);
