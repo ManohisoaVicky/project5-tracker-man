@@ -4,7 +4,9 @@ import "./SearchBar.css"
 
 function SearchBar() {
   return (
-    <div>SearchBar</div>
+    <div id='search-container'>
+      <input placeholder='Search comic'/>
+    </div>
   )
 }
 
