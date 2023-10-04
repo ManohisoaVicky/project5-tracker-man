@@ -17,3 +17,22 @@
     padding: 10px;
     border-radius: 10px;
 }
+
+#manga-list-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0px 10px;
+}
+
+#manga-list-info > p {
+  font-size: 12px;
+}
+
+#manga-list-info a {
+  background-color: var(--light-green);
+  color: var(--dark);
+  padding: 3px 7px;
+  border-radius: 5px;
+}

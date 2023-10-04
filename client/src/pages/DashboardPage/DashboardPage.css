@@ -6,3 +6,12 @@
 #track-btn {
     text-decoration: none;
 }
+
+#dashboard-control-panel {
+    display: flex;
+    justify-content: space-between;
+}
+
+#filter-sort-container {
+    display: flex;
+}

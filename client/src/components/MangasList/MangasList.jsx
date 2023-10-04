@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Pagination from "../Pagination/Pagination";
 import { fetchMangas } from "../../utils/mangaServices.js";
 import "./MangasList.css";
@@ -30,10 +31,14 @@ const MangaList = () => {
 
   return (
     <div id="manga_list_cont">
+      <div id="manga-list-info">
+        <p>Showing 1-50 of results</p>
+        <Link to="/track" id="track-btn">
+          Track
+        </Link>
+      </div>
       {mangas &&
-        mangas.map((manga) => (
-          <MangaCard manga={manga} key={manga._id}/>
-        ))}
+        mangas.map((manga) => <MangaCard manga={manga} key={manga._id} />)}
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
