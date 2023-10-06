@@ -42,14 +42,17 @@ async function getUserMangas(req, res, next) {
     if (filter) {
       const filters = filter.split(",").map((filterItem) => {
         const [key, value] = filterItem.split(":");
-        return { [`mangasData.${key}`]: value.trim() };
+        if (["type", "comicStatus", "readingStatus"].includes(key)) {
+          return { [`mangasData.${key}`]: value.trim() };
+        }
+        return null;
       });
-      console.log("Filter Criteria:", filter);
-      console.log("Parsed Filters:", filters);
 
-      console.log("Aggregation Pipeline:", JSON.stringify(pipeline, null, 2));
-
-      pipeline.push({ $match: { $and: filters } });
+      // Filter out null values and push valid filters to the pipeline
+      const validFilters = filters.filter((filter) => filter !== null);
+      if (validFilters.length > 0) {
+        pipeline.push({ $match: { $and: validFilters } });
+      }
     }
 
     if (sort) {
@@ -65,10 +68,7 @@ async function getUserMangas(req, res, next) {
       { $replaceRoot: { newRoot: "$mangasData" } }
     );
 
-    const [userMangas, totalCount] = await Promise.all([
-      User.aggregate(pipeline),
-      User.findById(userId).select("mangas"),
-    ]);
+    const [userMangas] = await Promise.all([User.aggregate(pipeline)]);
 
     if (!userMangas) {
       return res
@@ -76,13 +76,22 @@ async function getUserMangas(req, res, next) {
         .json({ error: true, message: "User mangas not found." });
     }
 
-    let totalPages;
+    // Calculate the total count of mangas matching the criteria
+    const totalMangasCount = await User.aggregate([
+      { $match: { _id: mongoose.Types.ObjectId(userId) } },
+      {
+        $lookup: {
+          from: "mangas",
+          localField: "mangas",
+          foreignField: "_id",
+          as: "mangasData",
+        },
+      },
+      { $unwind: "$mangasData" },
+    ]);
 
-    if (search || filter || sort) {
-      totalPages = Math.ceil(userMangas.length / parseInt(limit));
-    } else {
-      totalPages = Math.ceil(totalCount.mangas.length / parseInt(limit));
-    }
+    // Calculate totalPages based on the total count and limit
+    const totalPages = Math.ceil(totalMangasCount.length / parseInt(limit));
 
     res.json({ mangas: userMangas, totalPages });
   } catch (error) {

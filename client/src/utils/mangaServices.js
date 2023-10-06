@@ -17,13 +17,13 @@ async function trackManga(manga) {
     console.log(error);
   }
 }
-
-async function fetchMangas(page) {
+async function fetchMangas(page, search = "", filter = "", sort = "") {
   const limit = 10;
 
   try {
     const token = getToken();
-    const response = await fetch(`${MANGA_URL}?page=${page}&limit=${limit}`, {
+    const apiUrl = `${MANGA_URL}?page=${page}&limit=${limit}&search=${search}&filter=${filter}&sort=${sort}`;
+    const response = await fetch(apiUrl, {
       headers: {
         Authorization: "Bearer " + token,
       },
