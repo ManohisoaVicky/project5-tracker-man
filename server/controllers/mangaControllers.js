@@ -55,43 +55,27 @@ async function getUserMangas(req, res, next) {
       }
     }
 
-    if (sort) {
-      const [field, order] = sort.split(":");
-      const sortField =
-        field === "name" ? "mangasData.name.0" : `mangasData.${field}`;
-      pipeline.push({ $sort: { [sortField]: order === "asc" ? 1 : -1 } });
-    }
+    const skip = (page - 1) * limit;
+    const limitCount = parseInt(limit);
+
+    // Calculate the total count of mangas matching the criteria before pagination
+    const totalMangasCount = await User.aggregate(
+      pipeline.concat({ $count: "total" })
+    );
 
     pipeline.push(
-      { $skip: (page - 1) * limit },
-      { $limit: parseInt(limit) },
+      { $skip: skip },
+      { $limit: limitCount },
       { $replaceRoot: { newRoot: "$mangasData" } }
     );
 
-    const [userMangas] = await Promise.all([User.aggregate(pipeline)]);
-
-    if (!userMangas) {
-      return res
-        .status(400)
-        .json({ error: true, message: "User mangas not found." });
-    }
-
-    // Calculate the total count of mangas matching the criteria
-    const totalMangasCount = await User.aggregate([
-      { $match: { _id: mongoose.Types.ObjectId(userId) } },
-      {
-        $lookup: {
-          from: "mangas",
-          localField: "mangas",
-          foreignField: "_id",
-          as: "mangasData",
-        },
-      },
-      { $unwind: "$mangasData" },
-    ]);
+    // Extract the total count from the aggregation result
+    const total = totalMangasCount.length > 0 ? totalMangasCount[0].total : 0;
 
     // Calculate totalPages based on the total count and limit
-    const totalPages = Math.ceil(totalMangasCount.length / parseInt(limit));
+    const totalPages = Math.ceil(total / limitCount);
+
+    const userMangas = await User.aggregate(pipeline);
 
     res.json({ mangas: userMangas, totalPages });
   } catch (error) {
