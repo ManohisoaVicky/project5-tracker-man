@@ -41,9 +41,18 @@ async function getUserMangas(req, res, next) {
 
     if (filter) {
       const filters = filter.split(",").map((filterItem) => {
-        const [key, value] = filterItem.split(":");
-        if (["type", "comicStatus", "readingStatus"].includes(key)) {
-          return { [`mangasData.${key}`]: value.trim() };
+        const [key, ...values] = filterItem.split(":");
+        if (key === "rating") {
+          // Handle numeric comparisons for the "rating" field
+          if (values.length === 1) {
+            return { [`mangasData.${key}`]: parseInt(values[0]) };
+          } else if (values.length === 2 && values[0] === "gte") {
+            return { [`mangasData.${key}`]: { $gte: parseInt(values[1]) } };
+          } else if (values.length === 2 && values[0] === "lte") {
+            return { [`mangasData.${key}`]: { $lte: parseInt(values[1]) } };
+          }
+        } else if (["type", "comicStatus", "readingStatus"].includes(key)) {
+          return { [`mangasData.${key}`]: values.join(":").trim() };
         }
         return null;
       });
