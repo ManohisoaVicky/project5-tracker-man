@@ -1,0 +1,19 @@
+:root {
+  --title-font: 'Russo One', sans-serif;
+  --light-green: #3ed057;
+  --dark-green: #0e4429;
+  --light-grey: #5e6670;
+  --dark-grey: #2a3038;
+  --dark: #22272e;
+  --white: #FFFFFF;
+}
+
+#sort-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#sort-container > span{
+  margin-right: 5px;
+}
