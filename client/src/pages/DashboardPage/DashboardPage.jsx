@@ -12,6 +12,11 @@ function DashboardPage() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const [search, setSearch] = useState("")
+    const [filter, setFilter] = useState({
+      types: [],
+      comicStatus: [],
+      readingStatus: [],
+    });
 useEffect(() => {
   let fetchTimeout;
 
@@ -22,7 +27,7 @@ useEffect(() => {
       }
 
       fetchTimeout = setTimeout(async () => {
-        const data = await fetchMangas(currentPage, search);
+        const data = await fetchMangas(currentPage, search, filter);
         setMangas(data.mangas);
         setTotalPages(Math.ceil(data.totalPages));
       }, 1000); 
@@ -38,7 +43,7 @@ useEffect(() => {
       clearTimeout(fetchTimeout);
     }
   };
-}, [currentPage, search]);
+}, [currentPage, search, filter]);
 
     const handlePageChange = (page) => {
       setCurrentPage(page);
@@ -55,7 +60,7 @@ useEffect(() => {
         setSearch={setSearch}
         />
         <div id='filter-sort-container'>
-          <FilterPanel />
+          <FilterPanel setFilter={setFilter}/>
           <SortMenu />
         </div>
       </div>
