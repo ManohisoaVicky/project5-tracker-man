@@ -4,6 +4,7 @@ import {
   MANGA_TYPE,
   READING_STATUS,
   COMIC_STATUS,
+  RATING_LIST
 } from "../../utils/constants";
 
 import "./FilterPanel.css";
@@ -79,6 +80,22 @@ function FilterPanel( { setFilter }) {
               />
               <span className="greenmark"></span>
               {status}
+            </label>
+          ))}
+        </div>
+        <p>Rating</p>
+        <div className="rating-options-cont">
+          {RATING_LIST.map((rating) => (
+            <label className="checkbox-label" key={rating}>
+              <input
+                type="checkbox"
+                value={rating}
+                onChange={(event) =>
+                  handleCheckboxChange(event, "readingStatus")
+                }
+              />
+              <span className="greenmark"></span>
+              {rating}
             </label>
           ))}
         </div>

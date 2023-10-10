@@ -48,6 +48,12 @@
   margin: 5px;
 }
 
+.rating-options-cont {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 5px;
+}
+
 INPUT[type=checkbox]
 {
     background-color: white;

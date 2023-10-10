@@ -4,6 +4,8 @@ const MANGA_URL = "/api/mangas/";
 
 const REVIEW_URL = "/api/reviews/";
 
+const RATING_LIST = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 const MANGA_TAGS = [
   "Action",
   "Adapation",
@@ -112,4 +114,5 @@ export {
   READING_STATUS,
   MANGA_URL,
   REVIEW_URL,
+  RATING_LIST,
 };
