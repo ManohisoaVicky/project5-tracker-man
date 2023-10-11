@@ -12,8 +12,43 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  width: 30%;
 }
 
 #sort-container > span{
   margin-right: 5px;
+}
+#sort-container {
+  position: relative;
+}
+
+#sort-icons-cont {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#sort-icons-cont:hover {
+  cursor: pointer;
+}
+
+#sort-icons-cont > span{
+  margin-right:5px;
+}
+
+#sort-hidden {
+  display: none;
+}
+
+#sort-show {
+  position: absolute;
+  background-color: var(--dark);
+  top: 100%;
+  z-index: 1; 
+  width: 100%;
+  border: 2px solid var(--light-grey);
+  font-size: 14px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
 }
