@@ -16,6 +16,7 @@ function DashboardPage() {
       types: [],
       comicStatus: [],
       readingStatus: [],
+      rating: []
     });
 useEffect(() => {
   let fetchTimeout;

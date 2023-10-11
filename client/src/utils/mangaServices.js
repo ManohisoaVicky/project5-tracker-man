@@ -23,10 +23,8 @@ async function fetchMangas(page, search = "", filter = {}, sort = "") {
   try {
     const token = getToken();
 
-    // Create an array to store the filter criteria
     const filterCriteria = [];
 
-    // Check if any of the filter options (type, comicStatus, or readingStatus) have values
     if (filter.types.length > 0) {
       filterCriteria.push(`type:${filter.types.join(",")}`);
     }
@@ -39,13 +37,17 @@ async function fetchMangas(page, search = "", filter = {}, sort = "") {
       filterCriteria.push(`readingStatus:${filter.readingStatus.join(",")}`);
     }
 
-    // Combine the filter criteria into a single string with a comma (,) separator
-    const filterString = filterCriteria.join(",");
+    if (filter.rating.length > 0) {
+      const ratingString = filter.rating.filter(Number).map(String).join(",");
+      if (ratingString) {
+        filterCriteria.push(`rating:${ratingString}`);
+      }
+    }
 
-    // Construct the API URL with the filter portion if there are filter criteria
-    const apiUrl = `${MANGA_URL}?page=${page}&limit=${limit}&search=${search}${
-      filterString ? `&filter=${filterString}` : ""
-    }&sort=${sort}`;
+    const filterString =
+      filterCriteria.length > 0 ? `&filter=${filterCriteria.join(",")}` : "";
+
+    const apiUrl = `${MANGA_URL}?page=${page}&limit=${limit}&search=${search}${filterString}&sort=${sort}`;
 
     const response = await fetch(apiUrl, {
       headers: {

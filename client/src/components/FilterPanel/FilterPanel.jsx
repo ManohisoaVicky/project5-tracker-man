@@ -91,7 +91,7 @@ function FilterPanel( { setFilter }) {
                 type="checkbox"
                 value={rating}
                 onChange={(event) =>
-                  handleCheckboxChange(event, "readingStatus")
+                  handleCheckboxChange(event, "rating")
                 }
               />
               <span className="greenmark"></span>
