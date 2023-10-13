@@ -38,7 +38,7 @@ function SortMenu({ setSort }) {
                 name="sortOption"
                 onChange={handleSortChange}
               />
-              <span className="greenmark"></span>
+              <span className="greenradio"></span>
               {option}
             </label>
           ))}
