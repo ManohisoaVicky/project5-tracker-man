@@ -64,6 +64,27 @@ async function getUserMangas(req, res, next) {
       }
     }
 
+    if (sort) {
+      // Split the sort string into sortField and sortOrder
+      const [sortField, sortOrder] = sort.split(":");
+
+      // Define a sort order value based on sortOrder (default to 1 for ascending)
+      const sortOrderValue = sortOrder === "desc" ? -1 : 1;
+
+      // Define a sort field mapping
+      const sortFieldMapping = {
+        name: "mangasData.name",
+        artist: "mangasData.artist",
+        rating: "mangasData.rating",
+      };
+
+      // Check if the sortField is a valid key
+      if (sortField in sortFieldMapping) {
+        const sortFieldKey = sortFieldMapping[sortField];
+        pipeline.push({ $sort: { [sortFieldKey]: sortOrderValue } });
+      }
+    }
+
     const skip = (page - 1) * limit;
     const limitCount = parseInt(limit);
 

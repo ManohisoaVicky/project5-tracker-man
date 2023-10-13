@@ -12,7 +12,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 30%;
+  width: 40%;
 }
 
 #sort-container > span{
@@ -48,7 +48,21 @@
   width: 100%;
   border: 2px solid var(--light-grey);
   font-size: 14px;
-  padding: 5px;
   display: flex;
   justify-content: space-around;
+}
+
+#sort-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#sort-order > p:hover {
+  cursor: pointer;
+}
+
+.sort-option-chosen {
+  color: var(--light-green);
 }

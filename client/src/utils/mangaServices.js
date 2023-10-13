@@ -17,7 +17,7 @@ async function trackManga(manga) {
     console.log(error);
   }
 }
-async function fetchMangas(page, search = "", filter = {}, sort = "") {
+async function fetchMangas(page, search = "", filter = {}, sort = {}) {
   const limit = 10;
 
   try {
@@ -47,7 +47,14 @@ async function fetchMangas(page, search = "", filter = {}, sort = "") {
     const filterString =
       filterCriteria.length > 0 ? `&filter=${filterCriteria.join(",")}` : "";
 
-    const apiUrl = `${MANGA_URL}?page=${page}&limit=${limit}&search=${search}${filterString}&sort=${sort}`;
+    const sortString = sort
+      ? `&sort=${sort.sort.toLowerCase()}${
+          sort.order.toLowerCase() ? `:${sort.order.toLowerCase()}` : ""
+        }`
+      : "";
+
+    const apiUrl = `${MANGA_URL}?page=${page}&limit=${limit}&search=${search}${filterString}${sortString}`;
+    console.log(apiUrl);
 
     const response = await fetch(apiUrl, {
       headers: {

@@ -18,6 +18,10 @@ function DashboardPage() {
       readingStatus: [],
       rating: []
     });
+    const [sort, setSort] = useState({
+      sort: "",
+      order: ""
+    })
 useEffect(() => {
   let fetchTimeout;
 
@@ -28,7 +32,7 @@ useEffect(() => {
       }
 
       fetchTimeout = setTimeout(async () => {
-        const data = await fetchMangas(currentPage, search, filter);
+        const data = await fetchMangas(currentPage, search, filter, sort);
         setMangas(data.mangas);
         setTotalPages(Math.ceil(data.totalPages));
       }, 1000); 
@@ -44,7 +48,7 @@ useEffect(() => {
       clearTimeout(fetchTimeout);
     }
   };
-}, [currentPage, search, filter]);
+}, [currentPage, search, filter, sort]);
 
     const handlePageChange = (page) => {
       setCurrentPage(page);
@@ -62,7 +66,7 @@ useEffect(() => {
         />
         <div id='filter-sort-container'>
           <FilterPanel setFilter={setFilter}/>
-          <SortMenu />
+          <SortMenu setSort={setSort}/>
         </div>
       </div>
       <MangaList 
