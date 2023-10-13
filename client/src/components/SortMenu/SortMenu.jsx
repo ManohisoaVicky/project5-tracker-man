@@ -37,6 +37,7 @@ function SortMenu({ setSort }) {
                 value={option}
                 name="sortOption"
                 onChange={handleSortChange}
+                className="radio-input"
               />
               <span className="greenradio"></span>
               {option}
