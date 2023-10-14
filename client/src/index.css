@@ -1,4 +1,5 @@
-:root {
+@media (min-width: 1025px) {
+  :root {
   --title-font: 'Russo One', sans-serif;
   --light-green: #3ed057;
   --dark-green: #0e4429;
@@ -27,4 +28,4 @@ body {
   flex-grow: 1;
 }
 
-
+}

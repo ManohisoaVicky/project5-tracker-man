@@ -1,3 +1,6 @@
+@media (min-width: 1025px) {
+    /* Your desktop styles here */
+
 :root {
   --title-font: 'Russo One', sans-serif;
   --text-font: 'Roboto', sans-serif;
@@ -73,4 +76,5 @@
 .add_dynamic:hover {
   cursor: pointer;
   opacity: 1;
+}
 }

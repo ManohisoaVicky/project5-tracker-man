@@ -1,3 +1,6 @@
+@media (min-width: 1025px) {
+    /* Your desktop styles here */
+
 :root {
   --title-font: 'Russo One', sans-serif;
   --light-green: #3ed057;
@@ -31,4 +34,5 @@
     background-color: var(--dark-green);
     padding: 3px 5px;
     border-radius: 3px;
+}
 }
