@@ -8,46 +8,34 @@
   --white: #FFFFFF;
 }
 
-/* ------------------------------- Styling for small mobile devices"-------------------------------*/
-@media (max-width: 414px) {
-}
-
-/* ------------------------------- Styling for desktops and laptops devices"-------------------------------*/
-@media (min-width: 1025px) {
 #navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    height: 7%;
-    background-color: var(--dark);
-    color: var(--white);
+  background-color: var(--dark);
+  color: var(--white);
 }
 
 #nav-title-cont {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    font-size: var(--title-font);
-    font-size: 24px;
-    color: var(--white);
-    text-decoration: none;
+  align-items: center;
+  display: flex;
+  margin: 0;
+  font-size: var(--title-font);
+  color: var(--white);
+  text-decoration: none;
 }
 
 #auth-btn-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    width: 15%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #nav-user-cont {
     display: flex;
     justify-content: space-around;
     align-items: center;
-
-    width: 20%;
 }
 
 #auth-btn-container > a {
@@ -55,8 +43,6 @@
 }
 
 .auth-btn {
-    padding: 7px 12px;
-    border-radius: 15px;
     font-family: var(--title-font);
     background: linear-gradient(#0000, rgb(0 0 0/40%)) top/100% 800%;
     transition: 0.5s;
@@ -85,8 +71,6 @@
 }
 
 .logout-btn {
-    padding: 5px 10px;
-    border-radius: 15px;
     border: none;
     font-family: var(--title-font);
     background-color: var(--light-green);
@@ -95,6 +79,48 @@
 
 .logout-btn:hover {
     cursor: pointer;
+}
+
+/* ------------------------------- Styling for small mobile devices"-------------------------------*/
+@media (max-width: 414px) {
+  .front {
+    display: none;
+    visibility: hidden;
+  }
+
+  .back {
+    width: 2.5em;
+    height: 2.5em;
+    margin: 0.2em;
+  }
+}
+
+/* ------------------------------- Styling for desktops and laptops devices"-------------------------------*/
+@media (min-width: 1025px) {
+#navbar-container {
+    height: 7%;
+}
+
+#nav-title-cont {
+    font-size: 24px;
+}
+
+#auth-btn-container {
+    width: 15%;
+}
+
+#nav-user-cont {
+    width: 20%;
+}
+
+.auth-btn {
+    padding: 7px 12px;
+    border-radius: 15px;
+}
+
+.logout-btn {
+    padding: 5px 10px;
+    border-radius: 15px;
 }
 
 .logo-container {
