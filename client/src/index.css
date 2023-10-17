@@ -1,4 +1,4 @@
-@media (min-width: 1025px) {
+
   :root {
   --title-font: 'Russo One', sans-serif;
   --light-green: #3ed057;
@@ -28,4 +28,11 @@ body {
   flex-grow: 1;
 }
 
+
+/* ------------------------------- Styling for small mobile devices"-------------------------------*/
+@media (max-width: 414px) {
+}
+
+/* ------------------------------- Styling for desktops and laptops devices"-------------------------------*/
+@media (min-width: 1025px) {
 }
