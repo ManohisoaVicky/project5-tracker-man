@@ -93,6 +93,21 @@
     height: 2.5em;
     margin: 0.2em;
   }
+
+  #nav-user-cont {
+    width: 35%;
+  }
+
+  .logout-btn {
+    font-size: 12px;
+    padding: 3px 5px;
+    border-radius: 3px;
+  }
+
+  #navUsername {
+    font-size: 12px;
+  }
+
 }
 
 /* ------------------------------- Styling for desktops and laptops devices"-------------------------------*/
