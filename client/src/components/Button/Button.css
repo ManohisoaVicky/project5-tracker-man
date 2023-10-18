@@ -8,20 +8,26 @@
   --white: #FFFFFF;
 }
 
-
+.login-btn {
+  border:none;
+  cursor: pointer;
+  color: white;
+  font-family: var(--title-font);
+}
 
 /* ------------------------------- Styling for small mobile devices"-------------------------------*/
 @media (max-width: 414px) {
+  .login-btn {
+    background-color: var(--light-grey);
+    padding: 3px 5px;
+    border-radius: 5px;
+  }
   }
 
 @media (min-width: 1025px) {
 .login-btn {
     background:none;
-    border:none;
     padding: 5px 10px;
-    cursor: pointer;
-    color: white;
-    font-family: var(--title-font);
     transition: 1s;
 }
 
