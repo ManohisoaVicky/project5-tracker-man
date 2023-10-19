@@ -17,8 +17,12 @@
         align-items: center;
         width: 90%;
         border-top: 1px solid var(--light-green);
-        padding: 0px 5px;
         font-size: 14px;
+    }
+
+    .manga-card-cont a {
+        width: 100%;
+        padding: 0px 5px;
     }
 
     .manga_main_info {
