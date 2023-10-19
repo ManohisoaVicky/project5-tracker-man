@@ -1,6 +1,3 @@
-@media (min-width: 1025px) {
-    /* Your desktop styles here */
-
 :root {
   --title-font: 'Russo One', sans-serif;
   --light-green: #3ed057;
@@ -11,6 +8,46 @@
   --white: #FFFFFF;
 }
 
+/* ------------------------------- Styling for small mobile devices"-------------------------------*/
+@media (max-width: 414px) {
+    .manga-card-cont {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        border-top: 1px solid var(--light-green);
+        padding: 0px 5px;
+        font-size: 14px;
+    }
+
+    .manga_main_info {
+        display: flex;
+        justify-content: space-between;
+        text-align: start;
+    }
+
+    .manga_info_wrapper {
+        text-align: start;
+    }
+
+    .manga_cont {
+        color: white;
+    }
+
+    .reading_status > span, 
+    .manga_card_type > span {
+    background-color: var(--light-grey);
+    padding: 4px 7px;
+    border-radius: 3px;
+    }
+
+    #last_manga {
+        border-bottom: 1px solid var(--light-green);
+    }
+}
+
+@media (min-width: 1025px) {
 .manga_cont {
     display: flex;
     justify-content: space-between;

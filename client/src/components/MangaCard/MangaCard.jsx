@@ -8,7 +8,7 @@ import { deleteManga } from "../../utils/mangaServices.js";
 
 import "./MangaCard.css";
 
-function MangaCard({ manga }) {
+function MangaCard({ manga, id }) {
   let manga_name = capitalizeWords(manga.name[0]);
   let manga_artist = capitalizeWords(manga.artist[0]);
 
@@ -28,7 +28,7 @@ const handleDeleteClick = async () => {
 
 
   return (
-    <div className="manga-card-cont">
+    <div className="manga-card-cont" id={id}>
       <Link to={`/manga/detail/${manga._id}`}>
         <div className="manga_cont">
           <div className="manga_info_cont">
