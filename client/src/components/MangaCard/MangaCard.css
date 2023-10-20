@@ -19,6 +19,7 @@
         border-top: 1px solid var(--light-green);
         font-size: 14px;
         position: relative;
+        padding-bottom: 5px;
     }
 
     .manga-card-cont a {
