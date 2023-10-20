@@ -1,5 +1,3 @@
-@media (min-width: 1025px) {
-    /* Your desktop styles here */
 
 :root {
   --title-font: 'Russo One', sans-serif;
@@ -11,6 +9,79 @@
   --white: #FFFFFF;
 }
 
+
+#filter-hidden {
+  display: none;
+}
+
+INPUT[type=checkbox]
+{
+    background-color: white;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    position: relative;
+}
+
+INPUT[type=checkbox]:checked
+{
+    background-color: var(--light-green);
+    background: var(--light-green);
+}
+
+/* ------------------------------- Styling for small mobile devices"-------------------------------*/
+@media (max-width: 414px) {
+  #filter-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+
+  #filter-icons-cont {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--light-grey);
+    padding: 5px 5px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  #filter-show {
+    border-bottom: 2px solid var(--light-grey);
+  }
+
+  #filter-show > p {
+    text-align: start;
+    padding-left: 5px;
+    color: var(--light-grey);
+  }
+
+  .filter-options-cont {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: start;
+  font-size: 14px;
+  }
+  INPUT[type=checkbox] {
+    border-radius: 2px;
+    width: 10px;
+    height: 10px;
+    top: 2px;
+  }
+
+  .rating-options-cont {
+    display: grid;
+    grid-template-columns: repeat(9 , 1fr);
+    margin: 5px;
+  }
+
+}
+
+
+@media (min-width: 1025px) {
 #filter-container {
   position: relative;
   width: 70%;
@@ -28,10 +99,6 @@
 
 #filter-icons-cont > span{
   margin-right:5px;
-}
-
-#filter-hidden {
-  display: none;
 }
 
 #filter-show {
@@ -57,23 +124,12 @@
   margin: 5px;
 }
 
+
 INPUT[type=checkbox]
 {
-    background-color: white;
     border-radius: 2px;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     width: 15px;
     height: 15px;
-    cursor: pointer;
-    position: relative;
     top: 5px;
-}
-
-INPUT[type=checkbox]:checked
-{
-    background-color: var(--light-green);
-    background: var(--light-green);
 }
 }
