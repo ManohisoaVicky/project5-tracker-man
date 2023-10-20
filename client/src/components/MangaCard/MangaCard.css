@@ -18,6 +18,7 @@
         width: 90%;
         border-top: 1px solid var(--light-green);
         font-size: 14px;
+        position: relative;
     }
 
     .manga-card-cont a {
@@ -48,6 +49,21 @@
 
     #last_manga {
         border-bottom: 1px solid var(--light-green);
+    }
+
+    .manga-card-btn-cont {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .update-link {
+        color: white;
+    }
+
+    .manga-dlt-btn {
+        opacity: 0.7;
+        color: red;
     }
 }
 
@@ -147,8 +163,4 @@
     width: 6%;
     padding: 0px 10px;
 }
-
-
-
-
 }
