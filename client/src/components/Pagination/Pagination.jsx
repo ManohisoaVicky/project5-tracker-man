@@ -19,7 +19,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   }
 
   return (
-    <div>
+    <div id="pagination-cont">
       {pageRange.map((page) => (
         <button
           key={page}
