@@ -15,10 +15,27 @@
     flex-direction: column;
 }
 
+#manga-list-info a {
+  background-color: var(--light-green);
+  color: var(--dark);
+  padding: 3px 7px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
 /* ------------------------------- Styling for small mobile devices"-------------------------------*/
 @media (max-width: 414px) {
   #manga_list_cont {
     align-items: center;
+  }
+
+  #manga-list-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 90%;
+    font-size: 14px;
   }
 }
 
@@ -42,10 +59,5 @@
   font-size: 12px;
 }
 
-#manga-list-info a {
-  background-color: var(--light-green);
-  color: var(--dark);
-  padding: 3px 7px;
-  border-radius: 5px;
-}
+
 }
