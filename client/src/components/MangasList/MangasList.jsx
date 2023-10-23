@@ -6,12 +6,12 @@ import "./MangasList.css";
 
 import MangaCard from "../MangaCard/MangaCard";
 
-const MangaList = ({mangas, currentPage, totalPages, handlePageChange}) => {
+const MangaList = ({mangas, currentPage, totalPages, handlePageChange, to, from, totalMangas}) => {
 
   return (
     <div id="manga_list_cont">
       <div id="manga-list-info">
-        <p>Showing 1-50 of results</p>
+        <p>{`Showing ${from}-${to} of ${totalMangas} results`}</p>
         <Link to="/track" id="track-btn">
           Track
         </Link>

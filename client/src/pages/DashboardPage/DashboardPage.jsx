@@ -80,6 +80,9 @@ useEffect(() => {
         currentPage={currentPage} 
         totalPages={totalPages}
         handlePageChange={handlePageChange}
+        to={to}
+        from={from}
+        totalMangas={totalMangas}
       />
     </div>
   );
