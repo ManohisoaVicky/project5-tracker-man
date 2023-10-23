@@ -15,12 +15,43 @@
   font-family: var(--title-font);
 }
 
+#review-btn {
+  background-color: var(--light-green);
+  border: none;
+  font-family: var(--title-font);
+}
+
+#disabled-review-btn {
+  background-color: var(--light-green);
+  border: none;
+  font-family: var(--title-font);
+  opacity: 0.5;
+}
+
+#delete-review-btn {
+  background-color: red;
+  border: none;
+  color: white;
+  font-size: 14px;
+  opacity: 0.5;
+  transition: all 0.5s;
+  border-radius: 3px;
+}
+
 /* ------------------------------- Styling for small mobile devices"-------------------------------*/
 @media (max-width: 414px) {
   .login-btn {
     background-color: var(--light-grey);
     padding: 3px 5px;
     border-radius: 5px;
+  }
+
+  #review-btn {
+    padding: 3px 5px;
+  }
+
+  #disabled-review-btn {
+    padding: 3px 5px;
   }
   }
 
@@ -47,11 +78,7 @@
 }
 
 #review-btn {
-  background-color: var(--light-green);
-  border: none;
   padding: 5px 10px;
-  border-radius: 3px;
-  font-family: var(--title-font);
   opacity: 0.5;
   transition: all 0.5s;
 }
@@ -63,27 +90,15 @@
 }
 
 #disabled-review-btn {
-  background-color: var(--light-green);
-  border: none;
   padding: 5px 10px;
   border-radius: 3px;
-  font-family: var(--title-font);
-  opacity: 0.5;
 }
 
 #disabled-review-btn:hover {
   cursor: not-allowed;
 }
 
-#delete-review-btn {
-  background-color: red;
-  border: none;
-  color: white;
-  font-size: 14px;
-  opacity: 0.5;
-  transition: all 0.5s;
-  border-radius: 3px;
-}
+
 
 #delete-review-btn:hover {
   opacity: 1;
