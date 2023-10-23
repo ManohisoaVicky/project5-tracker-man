@@ -11,7 +11,7 @@ const MangaList = ({mangas, currentPage, totalPages, handlePageChange, to, from,
   return (
     <div id="manga_list_cont">
       <div id="manga-list-info">
-        <p>{`Showing ${from}-${to} of ${totalMangas} results`}</p>
+        {totalMangas && <p>{`Showing ${from}-${to} of ${totalMangas} results`}</p>}
         <Link to="/track" id="track-btn">
           Track
         </Link>
