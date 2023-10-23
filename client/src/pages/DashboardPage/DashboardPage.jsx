@@ -11,6 +11,9 @@ function DashboardPage() {
     const [mangas, setMangas] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
+    const [to, setTo] = useState(null)
+    const [from, setFrom] = useState(null)
+    const [totalMangas, setTotalMangas] = useState(null)
     const [search, setSearch] = useState("")
     const [filter, setFilter] = useState({
       types: [],
@@ -35,6 +38,9 @@ useEffect(() => {
         const data = await fetchMangas(currentPage, search, filter, sort);
         setMangas(data.mangas);
         setTotalPages(Math.ceil(data.totalPages));
+        setFrom(data.from)
+        setTo(data.to)
+        setTotalMangas(data.totalMangas)
       }, 1000); 
     } catch (error) {
       console.error(error);

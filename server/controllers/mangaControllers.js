@@ -66,15 +66,15 @@ async function getUserMangas(req, res, next) {
 
     const userMangas = await User.aggregate(pipeline);
 
-    const to = skip + 1;
-    const from = Math.min(skip + limitCount, total);
+    const from = skip + 1;
+    const to = Math.min(skip + limitCount, total);
     const totalMangas = total;
 
     res.json({
       mangas: userMangas,
       totalPages: Math.ceil(total / limitCount),
-      to,
       from,
+      to,
       totalMangas,
     });
   } catch (error) {
