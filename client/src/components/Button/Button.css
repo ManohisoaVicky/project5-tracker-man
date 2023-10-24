@@ -38,6 +38,14 @@
   border-radius: 3px;
 }
 
+.track-btn {
+  background-color: var(--light-green);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-family: var(--title-font);
+}
+
 /* ------------------------------- Styling for small mobile devices"-------------------------------*/
 @media (max-width: 414px) {
   .login-btn {
@@ -68,11 +76,6 @@
 }
 
 .track-btn {
-  background-color: var(--light-green);
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  font-family: var(--title-font);
   opacity: 0.5;
   transition: all 0.5s;
 }
