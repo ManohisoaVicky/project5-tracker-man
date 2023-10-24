@@ -1,6 +1,4 @@
-@media (min-width: 1025px) {
-    /* Your desktop styles here */
-    :root {
+:root {
   --title-font: 'Russo One', sans-serif;
   --light-green: #3ed057;
   --dark-green: #0e4429;
@@ -10,10 +8,6 @@
   --white: #FFFFFF;
 }
 
-#add_tag_cont {
-    margin-top: 30px;
-}
-
 #select_input {
     width: 100%;
     outline: none;
@@ -21,8 +15,6 @@
     border-right: 2px solid var(--light-grey);
     border-bottom: 2px solid var(--light-grey);
     border-top: none;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
 }
 
 #select_input::-webkit-scrollbar {
@@ -47,6 +39,86 @@
     text-align: left;
     background-color: var(--dark);
     color: white;
+}
+
+#selected_tag_cont {
+    display: flex;
+    justify-content: space-between;
+
+    border: 2px solid var(--light-grey);
+}
+
+#selected_tag_cont ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+#selected_tag_cont li {
+    list-style: none;
+    background-color: var(--light-grey);
+    border: 1px solid white;
+}
+
+/* ------------------------------- Styling for small mobile devices"-------------------------------*/
+@media (max-width: 414px) {
+    #add_tag_cont {
+        margin-bottom: 10px;
+    }
+
+    #select_input {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .tag_option {
+        font-size: 14px;
+        padding-left: 3px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .select_icon {
+        font-size: 24px;
+    }
+
+    #selected_tag_cont ul {
+    padding: 0px 3px;
+    width: 90%;
+    margin: 5px 0px;
+    row-gap: 5px;
+    }
+
+    #selected_tag_cont li {
+    font-size: 14px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin: 0 3px;
+    border-radius: 3px;
+}
+
+.close {
+    margin-left: 5px;
+    background-color: #8B0000;
+    padding: 3px;
+    height: 100%;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+}
+
+@media (min-width: 1025px) {
+#add_tag_cont {
+    margin-top: 30px;
+}
+
+#select_input {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.tag_option {
     font-size: 16px;
     padding-left: 5px;
     padding-top: 7px;
@@ -59,32 +131,23 @@
 }
 
 #selected_tag_cont {
-    display: flex;
-    justify-content: space-between;
 
-    border: 2px solid var(--light-grey);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
 
 #selected_tag_cont ul {
-    display: flex;
-    flex-wrap: wrap;
-    flex-shrink: 0;
     gap: 15px;
     padding: 0px 5px;
     width: 97%;
 }
 
 #selected_tag_cont li {
-    list-style: none;
     padding-left: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
     margin: 0 5px;
-    background-color: var(--light-grey);
     border-radius: 5px;
-    border: 1px solid white;
 }
 
 .close {
