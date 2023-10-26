@@ -22,7 +22,11 @@ app.use(express.json({ limit: "30mb" }));
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: [
+      "http://localhost:3000",
+      "https://snazzy-snickerdoodle-f7b920.netlify.app/",
+      "https://trackerman-backend.onrender.com",
+    ],
   })
 );
 
