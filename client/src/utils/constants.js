@@ -1,8 +1,8 @@
-const BASE_URL = "/api/users/";
+const BASE_URL = "https://trackerman-backend.onrender.com/api/users/";
 
-const MANGA_URL = "/api/mangas/";
+const MANGA_URL = "https://trackerman-backend.onrender.com/api/mangas/";
 
-const REVIEW_URL = "/api/reviews/";
+const REVIEW_URL = "https://trackerman-backend.onrender.com/api/reviews/";
 
 const RATING_LIST = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
