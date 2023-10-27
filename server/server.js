@@ -24,7 +24,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://trackerman.netlify.app/",
+      "https://trackerman.netlify.app",
       "https://trackerman-backend.onrender.com",
     ],
   })
