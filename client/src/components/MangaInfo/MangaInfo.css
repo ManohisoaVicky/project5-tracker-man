@@ -36,7 +36,27 @@
 /* ------------------------------- Styling for small mobile devices-------------------------------*/
 @media (max-width: 414px) {
     #detailed_manga_info > h1 {
-        font-size: 24px;
+        font-size: 26px;
+    }
+
+    #detailed_synopsis {
+        background-color: var(--dark-grey);
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    #manga_info_div {
+        font-size: 12px;
+    }
+
+    .manga_info_artist {
+        font-size: 12px;
+    }
+
+    #manga_status_div {
+        width: 94%;
+        display: flex;
+        justify-content: space-between;
     }
 }
 

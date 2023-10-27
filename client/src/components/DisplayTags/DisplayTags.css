@@ -33,6 +33,7 @@
 @media (max-width: 414px) {
     #display_tags_cont {
         display: flex;
+        font-size: 12px;
     }
 }
 
