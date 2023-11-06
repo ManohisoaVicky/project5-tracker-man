@@ -46,13 +46,15 @@ function NavBar() {
         </NavLink>
         {navLeft}
       </div>
-      <div id='nav-menu'>
-        <div id='nav-menu-list'>
-          <Link to="/">Home</Link>
-          <Link to="/browse">Browse</Link>
+      {user && (
+        <div id="nav-menu">
+          <div id="nav-menu-list">
+            <Link to="/">Home</Link>
+            <Link to="/browse">Browse</Link>
+          </div>
+          <Link to="/track">Track</Link>
         </div>
-        <Link to="/track">Track</Link>
-      </div>
+      )}
     </>
   );
 }

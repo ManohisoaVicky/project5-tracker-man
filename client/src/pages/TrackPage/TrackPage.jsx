@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { MANGA_TYPE, COMIC_STATUS, READING_STATUS } from '../../utils/constants.js';
 import { trackManga } from '../../utils/mangaServices.js';
+import useUser from '../../hooks/useUser.js';
 
 import DynamicInput from "../../components/Inputs/DynamicInput/DynamicInput.jsx";
 import AddTag from '../../components/AddTag/AddTag.jsx';
@@ -11,11 +12,14 @@ import MangaSelect from '../../components/Inputs/MangaSelect/MangaSelect.jsx';
 import TextEditor from "../../components/TextEditor/TextEditor.jsx"
 import Rating from '../../components/Rating/Rating.jsx';
 import Button from '../../components/Button/Button.jsx';
+import AccessDenied from '../../components/AccessDenied/AccessDenied.jsx';
 import "./TrackPage.css"
 
 function TrackPage() {
 
     const navigate = useNavigate()
+
+    const { user } = useUser()
 
     const handleAddFields = (fieldName) => {
       const values = [...manga[fieldName]];
@@ -85,7 +89,9 @@ function TrackPage() {
   })
 
   return (
-    <div id="trackPage">
+    <>
+    { user ? (
+<div id="trackPage">
       <h2>Track a Comic</h2>
       <form id='track_form'>
         <DynamicInput
@@ -138,7 +144,11 @@ function TrackPage() {
           <Button text="TRACK" clickHandler={handleSubmit}/>
         </div>
       </form>
-    </div>
+    </div> 
+    ) : (
+      <AccessDenied />
+    )}
+    </>
   );
 }
 
