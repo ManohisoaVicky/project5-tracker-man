@@ -27,25 +27,33 @@ function NavBar() {
   );
 
   return (
-    <div id="navbar-container">
-      <NavLink to="/" id="nav-title-cont">
-        <div className="logo-container">
-          <img
-            src={trackerManLogo}
-            alt="TrackerMan Logo"
-            className="logo front"
-          />
-          <img
-            src={trackerManLightLogo}
-            alt="TrackerMan Light Logo"
-            className="logo back"
-          />
+    <>
+      <div id="navbar-container">
+        <NavLink to="/" id="nav-title-cont">
+          <div className="logo-container">
+            <img
+              src={trackerManLogo}
+              alt="TrackerMan Logo"
+              className="logo front"
+            />
+            <img
+              src={trackerManLightLogo}
+              alt="TrackerMan Light Logo"
+              className="logo back"
+            />
+          </div>
+          <span id="nav-title">TRACKER MAN</span>
+        </NavLink>
+        {navLeft}
+      </div>
+      <div id='nav-menu'>
+        <div id='nav-menu-list'>
+          <Link to="/">Home</Link>
+          <Link to="/browse">Browse</Link>
         </div>
-        <span id="nav-title">TRACKER MAN</span>
-      </NavLink>
-
-      {navLeft}
-    </div>
+        <Link to="/track">Track</Link>
+      </div>
+    </>
   );
 }
 
