@@ -116,6 +116,50 @@
   #auth-btn-container {
     width: 35%;
 }
+
+  #nav-title {
+    display: none;
+  }
+
+#nav-menu {
+  display: flex;
+  justify-content: space-between;
+
+  height: 1.5em;
+  background-color: var(--light-green);
+  transition: background-color 0.7s;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+#nav-menu-list {
+  display: flex;
+  justify-content: space-between;
+
+  height: 100%;
+  padding: 0;
+}
+
+#nav-menu-list > a {
+  text-decoration: none;
+  color: var(--dark);
+  font-family: var(--title-font);
+  height: 100%;
+  padding-left: 5px;
+  transition: background-color 0.7s;
+  padding-top: 0.2em; /* Adjust the top padding as needed */
+  padding-bottom: 0.3em; /* Adjust the bottom padding as needed */
+} 
+
+#nav-menu-list > a:hover {
+  cursor: pointer;
+  background-color: #29A63D;
+}
+
+#nav-menu > a {
+  display: none;
+}
+
 }
 
 /* ------------------------------- Styling for desktops and laptops devices"-------------------------------*/
@@ -221,5 +265,6 @@
   cursor: pointer;
   background-color: #29A63D;
 }
+
 }
 
