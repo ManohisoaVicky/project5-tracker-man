@@ -3,12 +3,16 @@ import { useParams } from 'react-router-dom'
 import { getSingleManga } from '../../utils/mangaServices'
 import MangaInfo from '../../components/MangaInfo/MangaInfo'
 import ReviewComp from '../../components/ReviewComp/ReviewComp'
+import AccessDenied from '../../components/AccessDenied/AccessDenied'
+import useUser from '../../hooks/useUser'
 
 import "./MangaDetails.css"
 
 function MangaDetails() {
 
   const [manga, setManga] = useState()
+
+  const { user } = useUser()
 
   let mangaID = useParams().mangaID
 
@@ -26,7 +30,9 @@ function MangaDetails() {
    }, [mangaID]);
 
   return (
-    <div className="manga_details_cont">
+    <>
+    {user ? (
+          <div className="manga_details_cont">
       {manga ? (
         <>
           <MangaInfo manga={manga} />
@@ -36,6 +42,11 @@ function MangaDetails() {
         <p>Loading ...</p>
       )}
     </div>
+    ) : (
+      <AccessDenied />
+    )}
+    </>
+
   );
 }
 

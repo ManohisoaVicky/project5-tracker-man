@@ -14,11 +14,15 @@ import { COMIC_STATUS } from '../../utils/constants'
 import { READING_STATUS } from '../../utils/constants'
 import Button from '../../components/Button/Button'
 import { updateManga } from '../../utils/mangaServices'
+import useUser from '../../hooks/useUser'
+import AccessDenied from '../../components/AccessDenied/AccessDenied'
 
 import "./UpdatePage.css"
 
 function UpdatePage() {
   const [manga, setManga] = useState()
+
+  const { user } = useUser()
 
   let mangaID = useParams().mangaID
 
@@ -93,7 +97,10 @@ function UpdatePage() {
 
 
   return (
-    <div id="update-page-main-cont">
+    <>
+    {
+      user ? (
+<div id="update-page-main-cont">
       {manga ? (
         <>
           <h2>Update Comic</h2>
@@ -157,6 +164,10 @@ function UpdatePage() {
         <p>Loading</p>
       )}
     </div>
+      ) : <AccessDenied />
+    }
+    </>
+    
   );
 }
 
